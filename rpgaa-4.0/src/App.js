@@ -10,6 +10,8 @@ import Tavern from './pages/PracticeRooms/Tavern';
 import Library from './pages/PracticeRooms/Library';
 import Gymnasium from './pages/PracticeRooms/Gymnasium';
 import GadgetShop from './pages/PracticeRooms/GadgetStop';
+import Tutorial from './pages/CharacterCreation/Tutorial';
+import SkipTutorial from './pages/CharacterCreation/SkipTutorial';
 
 
 
@@ -23,6 +25,8 @@ function App() {
           <Route exact path='/' component={MainMenu}/>
           <Route exact path='/landing' component={LandingPage}/>
           <Route exact path='/creator' component={CharacterCreation}/>
+          <Route exact path='/tutorial' component={Tutorial} />
+          <Route exact path='/skip' component={SkipTutorial} />
           <Route exact path='/saved' component={SavedCharacters}/>
           <Route exact path='/practice' component={PracticeRooms} />
           <Route exact path='/arena' component={Arena}/>

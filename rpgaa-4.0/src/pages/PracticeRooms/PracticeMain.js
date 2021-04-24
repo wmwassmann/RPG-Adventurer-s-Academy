@@ -8,6 +8,13 @@ export default function PracticeRooms() {
     return (
         <div>
             <h1>Practice Rooms</h1>
+
+            {/* The purpose of this page is to route the user to various practice rooms. 
+            May look into simple animation to add to the transitional experience */}
+
+        
+
+
             <ul>
             <li>
                     <NavLink className="nav-link border-pop" to='/tavern' exact>The Tavern - Role Playing</NavLink>
