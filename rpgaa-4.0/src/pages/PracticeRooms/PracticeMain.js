@@ -31,6 +31,10 @@ export default function PracticeRooms() {
                 <li>
                     <NavLink className="nav-link border-pop" to='/gym' exact>The Gymnasium - Skill Checks</NavLink>
                 </li>
+
+                <br>
+                </br>
+
                 <li>
                     <NavLink className="nav-link border-pop" to='/' exact>Back</NavLink>
                 </li>

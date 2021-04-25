@@ -12,6 +12,7 @@ import Gymnasium from './pages/PracticeRooms/Gymnasium';
 import GadgetShop from './pages/PracticeRooms/GadgetStop';
 import Tutorial from './pages/CharacterCreation/Tutorial';
 import SkipTutorial from './pages/CharacterCreation/SkipTutorial';
+import CharacterSheet from './pages/CharacterSheet/CharacterSheet';
 
 
 
@@ -34,6 +35,7 @@ function App() {
           <Route exact path='/library' component={Library} />
           <Route exact path='/gym' component={Gymnasium} />
           <Route exact path='/gadget' component={GadgetShop} />
+          <Route exact path='/sheet' component={CharacterSheet} />
         </div>
 
 
