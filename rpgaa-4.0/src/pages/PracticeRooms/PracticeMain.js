@@ -7,6 +7,10 @@ export default function PracticeRooms() {
 
     return (
         <div>
+             
+            <NavLink className="nav-link border-pop" to='/' exact>Back</NavLink>
+           
+
             <h1>Practice Rooms</h1>
 
             {/* The purpose of this page is to route the user to various practice rooms. 
@@ -35,9 +39,7 @@ export default function PracticeRooms() {
                 <br>
                 </br>
 
-                <li>
-                    <NavLink className="nav-link border-pop" to='/' exact>Back</NavLink>
-                </li>
+              \
             </ul>
 
         </div>

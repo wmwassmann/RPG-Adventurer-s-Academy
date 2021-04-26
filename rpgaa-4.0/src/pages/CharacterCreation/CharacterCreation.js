@@ -6,6 +6,9 @@ export default function CharacterCreation() {
     
     return (
         <div>
+           
+            <NavLink className="nav-link border-pop" to='/' exact>Back</NavLink>   
+           
            <h1>Character Creation Page</h1> 
            <li>
             <NavLink className="nav-link border-pop" to='/tutorial' exact>Tutorial</NavLink>   
@@ -17,9 +20,7 @@ export default function CharacterCreation() {
            </br>
 
 
-           <li>
-            <NavLink className="nav-link border-pop" to='/' exact>Back</NavLink>   
-           </li>       
+                 
         </div>
     )
 }

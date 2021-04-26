@@ -6,6 +6,8 @@ export default function Tutorial() {
     
     return (
         <div>
+            <NavLink className="nav-link border-pop" to='/creator' exact>Back</NavLink>   
+
            <h1>Tutorial Page</h1>    
 
            {/* To-Do              
@@ -28,16 +30,14 @@ export default function Tutorial() {
                         -ex (
                             "Do you solve your problems through physicality? Or mentally?"
                             (If physical, as primarily physical questions with a single promption questions that opens up half-casters such as Paladins, and Clerics)
-                            (If Mental, offer questions primarily geared towards different types of spellcasters such as Wizards, Bards, Sorcerers, and maybe Clerics)
-
-                
+                            (If Mental, offer questions primarily geared towards different types of spellcasters such as Wizards, Bards, Sorcerers, and maybe Clerics)               
 
            */}
 
 
-           <li>
-            <NavLink className="nav-link border-pop" to='/creator' exact>Back</NavLink>   
-           </li>       
+          
+  
+                  
         </div>
     )
 }

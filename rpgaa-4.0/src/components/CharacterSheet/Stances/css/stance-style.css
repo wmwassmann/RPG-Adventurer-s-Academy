@@ -1,0 +1,15 @@
+
+.stance-display-container {
+    position: absolute;
+}
+
+.stance-btn-container {  
+    position: relative;
+    top: 575px;
+    padding: 15px;
+}
+
+.stance-btn {  
+    height: 20px;
+    width: 70px;
+}

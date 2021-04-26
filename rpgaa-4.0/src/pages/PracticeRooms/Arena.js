@@ -4,6 +4,9 @@ import { NavLink } from 'react-router-dom'
 export default function Arena() {
     return (
         <div>
+           
+            <NavLink className="nav-link border-pop" to='/practice' exact>Back</NavLink>
+            
             <h1>Arena</h1>
                 {/* This Arena will offer the simple martial weapons and give the play a practice dummy, 
                 and/or a sparring partner to test different weapons and see how they match up. 
@@ -14,10 +17,7 @@ export default function Arena() {
                 Maybe there could even be dialog that says "Be careful when attacking foes with 
                 melee weapons with ranged weapons if they are able to get within striking distance."*/}
 
-
-                <li>
-                    <NavLink className="nav-link border-pop" to='/practice' exact>Back</NavLink>
-                </li>
+               
         </div>
     )
 }
