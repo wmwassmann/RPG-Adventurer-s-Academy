@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import UseTutorial from '../../components/CharacterCreation/UseTutorial/UseTutorial'
 
 export default function Tutorial() {
 
@@ -36,7 +37,7 @@ export default function Tutorial() {
 
 
           
-  
+           <UseTutorial />
                   
         </div>
     )

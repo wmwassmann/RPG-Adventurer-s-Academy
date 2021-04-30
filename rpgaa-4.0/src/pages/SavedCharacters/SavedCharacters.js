@@ -11,7 +11,7 @@ export default function SavedCharacters() {
 
             <NavLink className="nav-link border-pop" to='/' exact>Back</NavLink>
            
-
+            {/* Consider One character - rethink 'Continue' vs multiple options */}
             <h1>Saved Characters</h1>
             <ul>
                 <li>

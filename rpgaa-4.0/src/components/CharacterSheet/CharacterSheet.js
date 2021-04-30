@@ -48,10 +48,10 @@ export class CharacterSheet extends React.Component {
                     display: 'Roleplay',
                     playerKey: ''
                 }
-            ]
+            ]            
         }
 
-
+  
     }
 
     // This sets the stance by mapping the array of objects above and returning a new object with the updated "selected_stance" in 's'.

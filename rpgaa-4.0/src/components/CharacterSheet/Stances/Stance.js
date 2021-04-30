@@ -6,7 +6,7 @@ import './css/stance-style.css'
 
 
 
-export default class Developer extends Component {
+export default class Stance extends Component {
 
     constructor(props) {
         super(props);
@@ -23,6 +23,7 @@ export default class Developer extends Component {
 
     // handle_stance checks the selected stance by state, and will display outputs based one whatever is in the stance's respective object. 
     handle_stance = (e) => {
+
         const stance = (this.props.stance)
      
         e.preventDefault()

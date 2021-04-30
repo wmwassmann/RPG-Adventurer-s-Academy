@@ -1,0 +1,10 @@
+
+
+.landing-container {
+    width: 100px;
+}
+
+.welcome-modal {
+    position: relative;
+    z-index: 1;
+}
