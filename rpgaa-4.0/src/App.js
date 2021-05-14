@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import CharacterCreation from './pages/CharacterCreation/CharacterCreation';
 import LandingPage from './pages/LandingPage/LandingPage';
 import MainMenu from './pages/MainMenu/MainMenu';
@@ -13,7 +14,9 @@ import GadgetShop from './pages/PracticeRooms/GadgetStop';
 import Tutorial from './pages/CharacterCreation/Tutorial';
 import SkipTutorial from './pages/CharacterCreation/SkipTutorial';
 import CharacterSheet from './pages/CharacterSheet/CharacterSheet';
-
+import EditCharacter from './components/SavedCharacters/EditCharacter';
+import CreateUser from './components/User/CreateUser';
+// import EditCharacterButton from './components/SavedCharacters/EditCharacterButton'
 
 
 
@@ -21,11 +24,14 @@ function App() {
   return (
     <Router>
       <Switch>
-
+  
         <div>
           <Route exact path='/' component={MainMenu}/>
-          <Route exact path='/landing' component={LandingPage}/>
+          <Route exact path='/edit/:id' component={EditCharacter}/>
+          {/* <Route exact path='/editbutton/:id' component={EditCharacterButton}/> */}
           <Route exact path='/creator' component={CharacterCreation}/>
+          <Route exact path='/user' component={CreateUser}/>
+          <Route exact path='/landing' component={LandingPage}/>         
           <Route exact path='/tutorial' component={Tutorial} />
           <Route exact path='/skip' component={SkipTutorial} />
           <Route exact path='/saved' component={SavedCharacters}/>

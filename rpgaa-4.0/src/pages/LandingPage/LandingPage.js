@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import WelcomeModal from '../../components/Modals/WelcomeModal'
+// import TextAdventure from '../../components/TextAdventure/TextAdventure'
+import EditCharacter from '../../components/SavedCharacters/EditCharacter'
 import './css/landing-style.css'
 
 
@@ -20,11 +22,11 @@ export default function LandingPage() {
 
                 <WelcomeModal
                     open={isOpen}
-                    onClose={() => setIsOpen(false)}>            
-                  
+                    onClose={() => setIsOpen(false)}>       
                 </WelcomeModal>
             </div>
-
+        {/* <TextAdventure /> */}
+        {/* <EditCharacter />  */}
             <li>
                 <NavLink className="nav-link border-pop" to='/' exact>Enter RPGAA</NavLink>
             </li>

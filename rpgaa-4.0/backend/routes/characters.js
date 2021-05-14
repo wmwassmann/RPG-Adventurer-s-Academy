@@ -13,13 +13,15 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
     const username = req.body.username;
+    const characterName = req.body.characterName;
     const gender = req.body.gender;
-    const alignment = req.body.alignment;
+    const alignment = Number(req.body.alignment);
     const race = req.body.race;
     const charClass = req.body.charClass;
 
     const newCharacter = new Character({
         username,
+        characterName,
         gender,
         alignment,
         race,
@@ -52,8 +54,9 @@ router.route('/update/:id').post((req, res) => {
     .then(character => {
 
         character.username = req.body.username;
+        character.characterName = req.body.characterName;
         character.gender = req.body.gender;
-        character.alignment = req.body.alignment;
+        character.alignment = Number(req.body.alignment);
         character.race = req.body.race;
         character.charClass = req.body.charClass;
 

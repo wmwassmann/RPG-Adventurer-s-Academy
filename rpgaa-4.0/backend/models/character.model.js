@@ -4,8 +4,9 @@ const Schema = mongoose.Schema;
 
 const characterSchema = new Schema({
     username: { type: String, required: true },
+    characterName: { type: String, required: true },
     gender: { type: String, required: true },
-    alignment: { type: String, required: true },
+    alignment: { type: Number, required: true },
     race: { type: String, required: true },
     charClass: { type: String, required: true },
 }, {
