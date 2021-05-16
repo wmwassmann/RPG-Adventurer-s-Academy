@@ -8,8 +8,11 @@ export default class UseTutorial extends Component {
         // this binds ".this" to each method within each method.
         this.onChangeUsername = this.onChangeUsername.bind(this);
         this.onChangeCharacter = this.onChangeCharacter.bind(this);
-        this.onChangeGender = this.onChangeGender.bind(this);
-        this.onChangeAlignment = this.onChangeAlignment.bind(this);
+        this.onChangeGender = this.onChangeGender.bind(this);        
+        this.onChangeGood = this.onChangeGood.bind(this);
+        this.onChangeEvil = this.onChangeEvil.bind(this);
+        this.onChangeLawful = this.onChangeLawful.bind(this);
+        this.onChangeChaotic = this.onChangeChaotic.bind(this);
         this.onChangeRace = this.onChangeRace.bind(this);
         this.onChangeCharClass = this.onChangeCharClass.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -21,6 +24,11 @@ export default class UseTutorial extends Component {
             alignment: '',
             race: '',
             charClass: '',
+            good: 0,
+            evil: 0,
+            lawful: 0,
+            chaotic: 0,
+            
             users: []
         }
     }
@@ -58,9 +66,27 @@ export default class UseTutorial extends Component {
         });
     }
 
-    onChangeAlignment(e) {
+    onChangeGood(e) {
         this.setState({
-            alignment: e.target.value
+            good: e.target.value
+        });
+    }
+
+    onChangeEvil(e) {
+        this.setState({
+            evil: e.target.value
+        });
+    }
+
+    onChangeLawful(e) {
+        this.setState({
+            lawful: e.target.value
+        });
+    }
+
+    onChangeChaotic(e) {
+        this.setState({
+            chaotic: e.target.value
         });
     }
 
@@ -86,7 +112,11 @@ export default class UseTutorial extends Component {
             gender: this.state.gender,
             alignment: this.state.alignment,
             race: this.state.race,
-            charClass: this.state.charClass
+            charClass: this.state.charClass,
+            good: this.state.good,
+            evil: this.state.evil,
+            lawful: this.state.lawful,
+            chaotic: this.state.chaotic
         }
 
         console.log(character);
@@ -141,14 +171,41 @@ export default class UseTutorial extends Component {
                             value={this.state.gender}
                             onChange={this.onChangeGender}
                         />
-                    </div>
+                    </div>   
                     <div className='form-group'>
-                        <label>Alignment: </label>
+                        <label>Good: </label>
                         <input type='text'
                             required
                             className='form-control'
-                            value={this.state.alignment}
-                            onChange={this.onChangeAlignment}
+                            value={this.state.good}
+                            onChange={this.onChangeGood}
+                        />
+                    </div>
+                    <div className='form-group'>
+                        <label>Evil: </label>
+                        <input type='text'
+                            required
+                            className='form-control'
+                            value={this.state.evil}
+                            onChange={this.onChangeEvil}
+                        />
+                    </div>
+                    <div className='form-group'>
+                        <label>Lawful: </label>
+                        <input type='text'
+                            required
+                            className='form-control'
+                            value={this.state.lawful}
+                            onChange={this.onChangeLawful}
+                        />
+                    </div>
+                    <div className='form-group'>
+                        <label>Chaotic: </label>
+                        <input type='text'
+                            required
+                            className='form-control'
+                            value={this.state.chaotic}
+                            onChange={this.onChangeChaotic}
                         />
                     </div>
                     <div className='form-group'>

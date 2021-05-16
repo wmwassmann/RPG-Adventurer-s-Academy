@@ -18,6 +18,10 @@ router.route('/add').post((req, res) => {
     const alignment = Number(req.body.alignment);
     const race = req.body.race;
     const charClass = req.body.charClass;
+    const good = req.body.good;
+    const evil = req.body.evil;
+    const lawful = req.body.lawful;
+    const chaotic = req.body.chaotic;
 
     const newCharacter = new Character({
         username,
@@ -26,6 +30,10 @@ router.route('/add').post((req, res) => {
         alignment,
         race,
         charClass,
+        good,
+        evil,
+        lawful,
+        chaotic
     });
 
     newCharacter.save()
@@ -59,6 +67,10 @@ router.route('/update/:id').post((req, res) => {
         character.alignment = Number(req.body.alignment);
         character.race = req.body.race;
         character.charClass = req.body.charClass;
+        character.good = req.body.good;
+        character.evil = req.body.evil;
+        character.lawful = req.body.lawful;
+        character.chaotic = req.body.chaotic;
 
         character.save()
             .then(character => res.json('Character updated!'))

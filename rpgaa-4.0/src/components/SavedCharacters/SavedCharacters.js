@@ -11,10 +11,22 @@ const Character = props => (
         <td>{props.characters.alignment}</td>
         <td>{props.characters.race}</td>
         <td>{props.characters.charClass}</td>
+
         <td>
-            <Link to={'/edit/'+props.characters._id}>edit</Link> | <button href='#' onClick={() => { props.deleteCharacter(props.characters._id) }}>delete</button>
+            <Link to={'/edit/' + props.characters._id}>edit</Link> | <button href='#' onClick={() => { props.deleteCharacter(props.characters._id) }}>delete</button>
         </td>
     </tr>
+)
+
+const AlignmentList = props => (
+    <tr>
+        <td>{props.characters.good}</td>
+        <td>{props.characters.evil}</td>
+        <td>{props.characters.lawful}</td>
+        <td>{props.characters.chaotic}</td>
+
+    </tr>
+
 )
 
 
@@ -26,22 +38,22 @@ export default class SavedCharacters extends Component {
 
         this.deleteCharacter = this.deleteCharacter.bind(this);
 
-        this.state ={characters: []}
+        this.state = { characters: [] }
     }
 
     componentDidMount() {
         axios.get('http://localhost:5000/characters/')
-        .then(response => {
-            this.setState({ characters: response.data })
+            .then(response => {
+                this.setState({ characters: response.data })
             })
             .catch((error) => {
                 console.log(error);
-            })       
-        }
+            })
+    }
 
     deleteCharacter(id) {
-        axios.delete('http://localhost:5000/characters/'+id)
-        .then(res => console.log(res.data))
+        axios.delete('http://localhost:5000/characters/' + id)
+            .then(res => console.log(res.data))
         this.setState({
             characters: this.state.characters.filter(el => el._id !== id)
         })
@@ -49,35 +61,65 @@ export default class SavedCharacters extends Component {
 
     characterList() {
         return this.state.characters.map(currentCharacter => {
-            return <Character 
+            return <Character
                 characters={currentCharacter}
                 deleteCharacter={this.deleteCharacter}
                 key={currentCharacter._id}
-                />
+            />
         })
     }
+
+
+    alignmentList() {
+        return this.state.characters.map(currentCharacter => {
+            return <AlignmentList
+                characters={currentCharacter}
+                deleteCharacter={this.deleteCharacter}
+                key={currentCharacter._id}
+            />
+        })
+    }
+
 
 
     render() {
         return (
             <div>
-                <h3>Player Characters</h3>
-                <table className='table'>
-                    <thead className='thead-light'>
-                        <tr>
-                            <th>Username</th>
-                            <th>Character</th>
-                            <th>Gender</th>
-                            <th>Alignment</th>
-                            <th>Race</th>
-                            <th>Class</th>
-                        </tr>
-                    </thead>
+                <div>
+                    <h3>Player Characters</h3>
+                    <table className='table'>
+                        <thead className='thead-light'>
+                            <tr>
+                                <th>Username</th>
+                                <th>Character</th>
+                                <th>Gender</th>
+                                <th>Alignment</th>
+                                <th>Race</th>
+                                <th>Class</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.characterList()}
+                        </tbody>
+
+                    </table>
+                </div>
+                <div>
+                    <table className='table'>
+                        <thead className='thead-light'>
+                            <tr>
+                                <th>Good</th>
+                                <th>Evil</th>
+                                <th>Lawful</th>
+                                <th>Chaotic</th>
+                            </tr>
+                        </thead>
+                   
                     <tbody>
-                        { this.characterList() }
+                        {this.alignmentList()}
                     </tbody>
-                    
-                    </table> 
+                    </table>
+                </div>
             </div>
         )
     }

@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import { NavLink } from 'react-router-dom'
+import SavedCharacters from './SavedCharacters';
+
 
 
 export default class EditCharacter extends Component {
     constructor(props) {
         super(props);
 
-        this.onChangeAlignment = this.onChangeAlignment.bind(this);
-
-
+        this.handleResponseOne = this.handleResponseOne.bind(this);
+        this.handleResponseTwo = this.handleResponseTwo.bind(this);
 
         this.state = {
             username: '',
@@ -18,6 +19,10 @@ export default class EditCharacter extends Component {
             alignment: 0,
             race: '',
             charClass: '',
+            good: 0,
+            evil: 0,
+            lawful: 0,
+            chaotic: 0,
             users: []
         }
     }
@@ -27,19 +32,27 @@ export default class EditCharacter extends Component {
     componentDidMount() {
         axios.get('http://localhost:5000/characters/' + this.props.match.params.id)
             .then(response => {
-                if (response.data.length > 0) {
-                    this.setState({
-                        //   gets specifically the indivual user's username - we can get anything with this method.   
-                        username: response.data.username,
-                        characterName: response.data.map(character => character.characterName),
-                        gender: response.data.gender,
-                        aligmnent: response.data.alignment,
-                        race: response.data.race,
-                        charClass: response.data.charClass
-                    })
-                }
-                console.log(response.data)
+                this.setState({
+                    //   gets specifically the indivual user's username - we can get anything with this method.   
+                    username: response.data.username,
+                    characterName: response.data.characterName,
+                    gender: response.data.gender,
+                    alignment: response.data.alignment,
+                    race: response.data.race,
+                    charClass: response.data.charClass,
+                    good: response.data.good,
+                    evil: response.data.evil,
+                    lawful: response.data.lawful,
+                    chaotic: response.data.chaotic
+                })
+
+                console.log(response.data, 'this')
             })
+            .catch(function (error) {
+                console.log(error);
+            })
+        console.log(this.state)
+
         axios.get('http://localhost:5000/users/')
             .then(response => {
                 if (response.data.length > 0) {
@@ -55,15 +68,20 @@ export default class EditCharacter extends Component {
     }
 
 
-    onChangeAlignment(e) {
-        e.preventDefault()
+
+    handleResponseOne() {
+
         const character = {
             username: this.state.username,
             characterName: this.state.characterName,
             gender: this.state.gender,
             alignment: this.state.alignment,
             race: this.state.race,
-            charClass: this.state.charClass
+            charClass: this.state.charClass,
+            good: this.state.good,
+            evil: this.state.evil,
+            lawful: this.state.lawful,
+            chaotic: this.state.chaotic
         }
 
 
@@ -71,18 +89,60 @@ export default class EditCharacter extends Component {
             username: this.state.username,
             characterName: this.state.characterName,
             gender: this.state.gender,
-            alignment: this.state.alignment + 2,
+            alignment: this.state.alignment,
             race: this.state.race,
-            charClass: this.state.charClass
+            charClass: this.state.charClass,
+            good: this.state.good + 3,
+            evil: this.state.evil + 0,
+            lawful: this.state.lawful + 4,
+            chaotic: this.state.chaotic + 0
         });
 
-
         console.log(character);
+        console.log(this.state, 'this.state')
 
         axios.post('http://localhost:5000/characters/update/' + this.props.match.params.id, character)
             .then(res => console.log(res.data));
 
     }
+
+    handleResponseTwo() {
+
+        const character = {
+            username: this.state.username,
+            characterName: this.state.characterName,
+            gender: this.state.gender,
+            alignment: this.state.alignment,
+            race: this.state.race,
+            charClass: this.state.charClass,
+            good: this.state.good,
+            evil: this.state.evil,
+            lawful: this.state.lawful,
+            chaotic: this.state.chaotic
+        }
+
+
+        this.setState({
+            username: this.state.username,
+            characterName: this.state.characterName,
+            gender: this.state.gender,
+            alignment: this.state.alignment,
+            race: this.state.race,
+            charClass: this.state.charClass,
+            good: this.state.good + 0,
+            evil: this.state.evil + 2,
+            lawful: this.state.lawful + 2,
+            chaotic: this.state.chaotic + 0
+        });
+
+        console.log(character);
+        console.log(this.state, 'this.state')
+
+        axios.post('http://localhost:5000/characters/update/' + this.props.match.params.id, character)
+            .then(res => console.log(res.data));
+
+    }
+
 
 
     render() {
@@ -101,15 +161,35 @@ export default class EditCharacter extends Component {
 
                     <button
                         className='data-base-btn'
-                        onClick={this.onChangeAlignment}>
-                        Alignment</button>
+                        onClick={this.handleResponseOne}>
+                        Response One</button>
 
 
 
                 </div>
                 <div>
-                    {this.state.alignment}
+                    {this.state.good}
                 </div>
+                <div>
+                    {this.state.evil}
+                </div>
+                <div>
+                    {this.state.lawful}
+                </div>
+                <div>
+                    {this.state.chaotic}
+                </div>
+                <div className='form-group'>
+
+                    <button
+                        className='data-base-btn'
+                        onClick={this.handleResponseTwo}>
+                        Response Two</button>
+
+
+
+                </div>
+
 
                 <div className='form-group'>
                     <label>Class: </label>
@@ -117,7 +197,7 @@ export default class EditCharacter extends Component {
                 </div>
 
 
-
+                <SavedCharacters />
             </div>
         )
     }
