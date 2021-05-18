@@ -16,6 +16,7 @@ import SkipTutorial from './pages/CharacterCreation/SkipTutorial';
 import CharacterSheet from './pages/CharacterSheet/CharacterSheet';
 import EditCharacter from './components/SavedCharacters/EditCharacter';
 import CreateUser from './components/User/CreateUser';
+import Gameplay from './pages/Gameplay/Gameplay';
 // import EditCharacterButton from './components/SavedCharacters/EditCharacterButton'
 
 
@@ -30,6 +31,7 @@ function App() {
           <Route exact path='/edit/:id' component={EditCharacter}/>
           {/* <Route exact path='/editbutton/:id' component={EditCharacterButton}/> */}
           <Route exact path='/creator' component={CharacterCreation}/>
+          <Route exact path='/gameplay' component={Gameplay} />
           <Route exact path='/user' component={CreateUser}/>
           <Route exact path='/landing' component={LandingPage}/>         
           <Route exact path='/tutorial' component={Tutorial} />
