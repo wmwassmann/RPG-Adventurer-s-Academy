@@ -25,6 +25,7 @@ const AlignmentList = props => (
         <td>{props.characters.lawful}</td>
         <td>{props.characters.chaotic}</td>
 
+
     </tr>
 
 )
@@ -112,6 +113,7 @@ export default class SavedCharacters extends Component {
                                 <th>Evil</th>
                                 <th>Lawful</th>
                                 <th>Chaotic</th>
+                     
                             </tr>
                         </thead>
                    

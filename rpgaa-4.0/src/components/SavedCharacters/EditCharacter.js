@@ -12,17 +12,19 @@ export default class EditCharacter extends Component {
         this.handleResponseOne = this.handleResponseOne.bind(this);
         this.handleResponseTwo = this.handleResponseTwo.bind(this);
 
+
         this.state = {
             username: '',
             characterName: '',
             gender: '',
-            alignment: 0,
+            alignment: '',
             race: '',
             charClass: '',
             good: 0,
             evil: 0,
             lawful: 0,
             chaotic: 0,
+       
             users: []
         }
     }
@@ -43,7 +45,8 @@ export default class EditCharacter extends Component {
                     good: response.data.good,
                     evil: response.data.evil,
                     lawful: response.data.lawful,
-                    chaotic: response.data.chaotic
+                    chaotic: response.data.chaotic,
+        
                 })
 
                 console.log(response.data, 'this')
@@ -53,6 +56,7 @@ export default class EditCharacter extends Component {
             })
         console.log(this.state)
 
+     
         axios.get('http://localhost:5000/users/')
             .then(response => {
                 if (response.data.length > 0) {
@@ -81,25 +85,73 @@ export default class EditCharacter extends Component {
             good: this.state.good,
             evil: this.state.evil,
             lawful: this.state.lawful,
-            chaotic: this.state.chaotic
+            chaotic: this.state.chaotic,
+     
         }
 
+        console.log(character);
+        console.log(this.state, 'this.state')
+
+        const alignGood = this.state.good + 3
+        const alignEvil = this.state.evil
+        const alignLawful = this.state.lawful + 4
+        const alignChaotic = this.state.chaotic
+
+        localStorage.setItem('good', alignGood)
+        localStorage.setItem('evil', alignEvil)
+        localStorage.setItem('lawful', alignLawful)
+        localStorage.setItem('chaotic', alignChaotic)  
+
+        const goodTrend = localStorage.getItem('good')
+        const evilTrend = localStorage.getItem('evil')
+        const lawfulTrend = localStorage.getItem('lawful')
+        const chaoticTrend = localStorage.getItem('chaotic')
+    
+        const trendingAlignment = localStorage.getItem('Trending Alignment')
+        
+        localStorage.setItem('Trending Alignment', '')
+
+        if ((lawfulTrend > chaoticTrend) && (goodTrend > evilTrend)) {
+            localStorage.setItem('Trending Alignment', 'Lawful Good')
+            console.log('Lawful Good')                                                            
+        } else if ((lawfulTrend === chaoticTrend) && (goodTrend > evilTrend)) {
+            localStorage.setItem('Trending Alignment', 'Neutral Good')
+            console.log('Neutral Good')
+        } else if ((chaoticTrend > lawfulTrend) && (goodTrend > evilTrend)) {
+            localStorage.setItem('Trending Alignment', 'Chaotic Good')
+            console.log('Chaotic Good')
+        } else if ((lawfulTrend > chaoticTrend) && (goodTrend === evilTrend)) {
+            localStorage.setItem('Trending Alignment', 'Lawful Neutral')
+            console.log('Lawful Neutral')
+        } else if ((lawfulTrend === chaoticTrend) && (goodTrend === evilTrend)) {
+            localStorage.setItem('Trending Alignment', 'True Neutral')
+            console.log('True Neutral')
+        } else if ((chaoticTrend > lawfulTrend) && (goodTrend === evilTrend)) {
+            localStorage.setItem('Trending Alignment', 'Chaotic Neutral')
+            console.log('Chaotic Neutral')
+        } else if ((lawfulTrend > chaoticTrend) && (evilTrend > goodTrend)) {
+            localStorage.setItem('Trending Alignment', 'Lawful Evil')
+            console.log('Lawful Evil')
+        } else if ((lawfulTrend === chaoticTrend) && (evilTrend > goodTrend)) {
+            localStorage.setItem('Trending Alignment', 'Neutral Evil')
+            console.log('Neutral Evil')
+        } else if ((chaoticTrend > lawfulTrend) && (evilTrend > goodTrend)) {
+            localStorage.setItem('Trending Alignment', 'Chaotic Evil')
+            console.log('Chaotic Evil')
+        }
 
         this.setState({
             username: this.state.username,
             characterName: this.state.characterName,
             gender: this.state.gender,
-            alignment: this.state.alignment,
+            alignment: trendingAlignment,
             race: this.state.race,
             charClass: this.state.charClass,
-            good: this.state.good + 3,
-            evil: this.state.evil + 0,
-            lawful: this.state.lawful + 4,
-            chaotic: this.state.chaotic + 0
+            good: alignGood,
+            evil: alignEvil,
+            lawful: alignLawful,
+            chaotic: alignChaotic
         });
-
-        console.log(character);
-        console.log(this.state, 'this.state')
 
         axios.post('http://localhost:5000/characters/update/' + this.props.match.params.id, character)
             .then(res => console.log(res.data));
@@ -118,31 +170,80 @@ export default class EditCharacter extends Component {
             good: this.state.good,
             evil: this.state.evil,
             lawful: this.state.lawful,
-            chaotic: this.state.chaotic
+            chaotic: this.state.chaotic,
+         
         }
 
+        console.log(character);
+        console.log(this.state, 'this.state')
+
+        const alignGood = this.state.good
+        const alignEvil = this.state.evil + 2
+        const alignLawful = this.state.lawful
+        const alignChaotic = this.state.chaotic + 2
+       
+
+        localStorage.setItem('good', alignGood)
+        localStorage.setItem('evil', alignEvil)
+        localStorage.setItem('lawful', alignLawful)
+        localStorage.setItem('chaotic', alignChaotic)
+      
+
+        const goodTrend = localStorage.getItem('good')
+        const evilTrend = localStorage.getItem('evil')
+        const lawfulTrend = localStorage.getItem('lawful')
+        const chaoticTrend = localStorage.getItem('chaotic')
+       
+        const trendingAlignment = localStorage.getItem('Trending Alignment')
+        
+        localStorage.setItem('Trending Alignment', '')
+        
+        if ((lawfulTrend > chaoticTrend) && (goodTrend > evilTrend)) {
+            localStorage.setItem('Trending Alignment', 'Lawful Good')
+            console.log('Lawful Good')                                                            
+        } else if ((lawfulTrend === chaoticTrend) && (goodTrend > evilTrend)) {
+            localStorage.setItem('Trending Alignment', 'Neutral Good')
+            console.log('Neutral Good')
+        } else if ((chaoticTrend > lawfulTrend) && (goodTrend > evilTrend)) {
+            localStorage.setItem('Trending Alignment', 'Chaotic Good')
+            console.log('Chaotic Good')
+        } else if ((lawfulTrend > chaoticTrend) && (goodTrend === evilTrend)) {
+            localStorage.setItem('Trending Alignment', 'Lawful Neutral')
+            console.log('Lawful Neutral')
+        } else if ((lawfulTrend === chaoticTrend) && (goodTrend === evilTrend)) {
+            localStorage.setItem('Trending Alignment', 'True Neutral')
+            console.log('True Neutral')
+        } else if ((chaoticTrend > lawfulTrend) && (goodTrend === evilTrend)) {
+            localStorage.setItem('Trending Alignment', 'Chaotic Neutral')
+            console.log('Chaotic Neutral')
+        } else if ((lawfulTrend > chaoticTrend) && (evilTrend > goodTrend)) {
+            localStorage.setItem('Trending Alignment', 'Lawful Evil')
+            console.log('Lawful Evil')
+        } else if ((lawfulTrend === chaoticTrend) && (evilTrend > goodTrend)) {
+            localStorage.setItem('Trending Alignment', 'Neutral Evil')
+            console.log('Neutral Evil')
+        } else if ((chaoticTrend > lawfulTrend) && (evilTrend > goodTrend)) {
+            localStorage.setItem('Trending Alignment', 'Chaotic Evil')
+            console.log('Chaotic Evil')
+        }
 
         this.setState({
             username: this.state.username,
             characterName: this.state.characterName,
             gender: this.state.gender,
-            alignment: this.state.alignment,
+            alignment: trendingAlignment,
             race: this.state.race,
             charClass: this.state.charClass,
-            good: this.state.good + 0,
-            evil: this.state.evil + 2,
-            lawful: this.state.lawful + 2,
-            chaotic: this.state.chaotic + 0
+            good: alignGood,
+            evil: alignEvil,
+            lawful: alignLawful,
+            chaotic: alignChaotic
+  
         });
-
-        console.log(character);
-        console.log(this.state, 'this.state')
-
         axios.post('http://localhost:5000/characters/update/' + this.props.match.params.id, character)
             .then(res => console.log(res.data));
 
     }
-
 
 
     render() {
@@ -162,29 +263,34 @@ export default class EditCharacter extends Component {
                     <button
                         className='data-base-btn'
                         onClick={this.handleResponseOne}>
-                        Response One</button>
+                        Lawful Good</button>
 
 
 
                 </div>
                 <div>
-                    {this.state.good}
+                    Good: {this.state.good}
                 </div>
                 <div>
-                    {this.state.evil}
+                    Evil: {this.state.evil}
                 </div>
                 <div>
-                    {this.state.lawful}
+                    Lawful: {this.state.lawful}
                 </div>
                 <div>
-                    {this.state.chaotic}
+                    Chaotic: {this.state.chaotic}
                 </div>
+     
                 <div className='form-group'>
 
                     <button
                         className='data-base-btn'
                         onClick={this.handleResponseTwo}>
-                        Response Two</button>
+                        Chaotic Evil
+                    </button>
+
+
+
 
 
 
