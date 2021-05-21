@@ -24,7 +24,7 @@ export default class Datapull extends Component {
 
 
     componentDidMount() {
-        axios.get('http://localhost:5000/characters/60a46d712f0d0949d0154b8f')
+        axios.get('http://localhost:5000/characters/60a46d712f0d0949d0154b8f'  + this.props.match.params.id)
             .then(response => {
                 this.setState({
                     //   gets specifically the indivual user's username - we can get anything with this method.   

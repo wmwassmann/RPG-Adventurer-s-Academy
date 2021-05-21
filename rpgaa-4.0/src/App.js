@@ -17,7 +17,7 @@ import CharacterSheet from './pages/CharacterSheet/CharacterSheet';
 import EditCharacter from './components/SavedCharacters/EditCharacter';
 import CreateUser from './components/User/CreateUser';
 import Gameplay from './pages/Gameplay/Gameplay';
-// import EditCharacterButton from './components/SavedCharacters/EditCharacterButton'
+
 
 
 
@@ -29,7 +29,7 @@ function App() {
         <div>
           <Route exact path='/' component={MainMenu}/>
           <Route exact path='/edit/:id' component={EditCharacter}/>
-          {/* <Route exact path='/editbutton/:id' component={EditCharacterButton}/> */}
+ 
           <Route exact path='/creator' component={CharacterCreation}/>
           <Route exact path='/gameplay' component={Gameplay} />
           <Route exact path='/user' component={CreateUser}/>

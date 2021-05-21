@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import { NavLink } from 'react-router-dom'
-import SavedCharacters from './SavedCharacters';
+
 
 
 
@@ -11,6 +11,7 @@ export default class EditCharacter extends Component {
 
         this.handleResponseOne = this.handleResponseOne.bind(this);
         this.handleResponseTwo = this.handleResponseTwo.bind(this);
+
 
 
         this.state = {
@@ -24,7 +25,7 @@ export default class EditCharacter extends Component {
             evil: 0,
             lawful: 0,
             chaotic: 0,
-       
+
             users: []
         }
     }
@@ -46,7 +47,7 @@ export default class EditCharacter extends Component {
                     evil: response.data.evil,
                     lawful: response.data.lawful,
                     chaotic: response.data.chaotic,
-        
+
                 })
 
                 console.log(response.data, 'this')
@@ -56,7 +57,7 @@ export default class EditCharacter extends Component {
             })
         console.log(this.state)
 
-     
+
         axios.get('http://localhost:5000/users/')
             .then(response => {
                 if (response.data.length > 0) {
@@ -71,7 +72,26 @@ export default class EditCharacter extends Component {
 
     }
 
+    componentDidUpdate() {
 
+
+        const character = {
+            username: this.state.username,
+            characterName: this.state.characterName,
+            gender: this.state.gender,
+            alignment: this.state.alignment,
+            race: this.state.race,
+            charClass: this.state.charClass,
+            good: this.state.good,
+            evil: this.state.evil,
+            lawful: this.state.lawful,
+            chaotic: this.state.chaotic,
+
+        }
+
+        axios.post('http://localhost:5000/characters/update/' + this.props.match.params.id, character)
+            .then(res => console.log(res.data));
+    }
 
     handleResponseOne() {
 
@@ -86,7 +106,7 @@ export default class EditCharacter extends Component {
             evil: this.state.evil,
             lawful: this.state.lawful,
             chaotic: this.state.chaotic,
-     
+
         }
 
         console.log(character);
@@ -100,20 +120,20 @@ export default class EditCharacter extends Component {
         localStorage.setItem('good', alignGood)
         localStorage.setItem('evil', alignEvil)
         localStorage.setItem('lawful', alignLawful)
-        localStorage.setItem('chaotic', alignChaotic)  
+        localStorage.setItem('chaotic', alignChaotic)
 
         const goodTrend = localStorage.getItem('good')
         const evilTrend = localStorage.getItem('evil')
         const lawfulTrend = localStorage.getItem('lawful')
         const chaoticTrend = localStorage.getItem('chaotic')
-    
+
         const trendingAlignment = localStorage.getItem('Trending Alignment')
-        
+
         localStorage.setItem('Trending Alignment', '')
 
         if ((lawfulTrend > chaoticTrend) && (goodTrend > evilTrend)) {
             localStorage.setItem('Trending Alignment', 'Lawful Good')
-            console.log('Lawful Good')                                                            
+            console.log('Lawful Good')
         } else if ((lawfulTrend === chaoticTrend) && (goodTrend > evilTrend)) {
             localStorage.setItem('Trending Alignment', 'Neutral Good')
             console.log('Neutral Good')
@@ -152,11 +172,9 @@ export default class EditCharacter extends Component {
             lawful: alignLawful,
             chaotic: alignChaotic
         });
-
-        axios.post('http://localhost:5000/characters/update/' + this.props.match.params.id, character)
-            .then(res => console.log(res.data));
-
     }
+
+
 
     handleResponseTwo() {
 
@@ -171,7 +189,7 @@ export default class EditCharacter extends Component {
             evil: this.state.evil,
             lawful: this.state.lawful,
             chaotic: this.state.chaotic,
-         
+
         }
 
         console.log(character);
@@ -181,26 +199,25 @@ export default class EditCharacter extends Component {
         const alignEvil = this.state.evil + 2
         const alignLawful = this.state.lawful
         const alignChaotic = this.state.chaotic + 2
-       
+
 
         localStorage.setItem('good', alignGood)
         localStorage.setItem('evil', alignEvil)
         localStorage.setItem('lawful', alignLawful)
         localStorage.setItem('chaotic', alignChaotic)
-      
+
 
         const goodTrend = localStorage.getItem('good')
         const evilTrend = localStorage.getItem('evil')
         const lawfulTrend = localStorage.getItem('lawful')
         const chaoticTrend = localStorage.getItem('chaotic')
-       
         const trendingAlignment = localStorage.getItem('Trending Alignment')
-        
+
         localStorage.setItem('Trending Alignment', '')
-        
+
         if ((lawfulTrend > chaoticTrend) && (goodTrend > evilTrend)) {
             localStorage.setItem('Trending Alignment', 'Lawful Good')
-            console.log('Lawful Good')                                                            
+            console.log('Lawful Good')
         } else if ((lawfulTrend === chaoticTrend) && (goodTrend > evilTrend)) {
             localStorage.setItem('Trending Alignment', 'Neutral Good')
             console.log('Neutral Good')
@@ -238,11 +255,8 @@ export default class EditCharacter extends Component {
             evil: alignEvil,
             lawful: alignLawful,
             chaotic: alignChaotic
-  
-        });
-        axios.post('http://localhost:5000/characters/update/' + this.props.match.params.id, character)
-            .then(res => console.log(res.data));
 
+        });
     }
 
 
@@ -259,15 +273,21 @@ export default class EditCharacter extends Component {
                     {this.state.characterName}
                 </div>
                 <div className='form-group'>
-
                     <button
                         className='data-base-btn'
                         onClick={this.handleResponseOne}>
-                        Lawful Good</button>
-
-
-
+                        Lawful Good
+                    </button>
                 </div>
+                <div className='form-group'>
+
+                    <button
+                        className='data-base-btn'
+                        onClick={this.handleResponseTwo}>
+                        Chaotic Evil
+                    </button>
+                </div>
+
                 <div>
                     Good: {this.state.good}
                 </div>
@@ -280,30 +300,13 @@ export default class EditCharacter extends Component {
                 <div>
                     Chaotic: {this.state.chaotic}
                 </div>
-     
-                <div className='form-group'>
 
-                    <button
-                        className='data-base-btn'
-                        onClick={this.handleResponseTwo}>
-                        Chaotic Evil
-                    </button>
-
-
-
-
-
-
-                </div>
 
 
                 <div className='form-group'>
                     <label>Class: </label>
                     {this.state.charClass}
                 </div>
-
-
-                <SavedCharacters />
             </div>
         )
     }
