@@ -26,6 +26,9 @@ export default function MainMenu() {
                 <li>
                     <NavLink className="nav-link border-pop" to='/practice' exact>Practice Rooms</NavLink>
                 </li>
+                <li>
+                    <NavLink className="nav-link border-pop" to='/auth' exact>Auth</NavLink>
+                </li>
             </ul>
         </div>
     )

@@ -55,12 +55,24 @@ const userSchema = new Schema({
     timestamps: true,
 });
 
-
+userSchema.virtual('passwordConfirmation')
+    .get(function() {
+      return this._passwordConfirmation;
+    })
+    .set(function(value) {
+        this._passwordConfirmation = value;
+    });
 userSchema.pre('save', async function (next) {
+    if (this.password !== this.passwordConfirm) {
+        this.invalidate('passwordConfirmation', 'Pasword does not match')
+    }
+
     console.log('user about to be created and saved', this);
     const salt = await bcrypt.genSalt();
     this.password = await bcrypt.hash(this.password, salt)
+    this.passwordConfirm = await bcrypt.hash(this.passwordConfirm, salt)  
     next()
+
 })
 
 const User = mongoose.model('User', userSchema);

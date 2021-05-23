@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import { NavLink } from 'react-router-dom'
 
+// import { useAuth } from '../../contexts/AuthContext'
 
 
 export default class CreateUser extends Component {
@@ -61,18 +63,20 @@ export default class CreateUser extends Component {
         axios.post('http://localhost:5000/users/add', user)
             .then(res => console.log(res.data));
 
-        this.setState({
-            username: '',
-            email: '',
-            password: '',
-            passwordConfirm: ''
-        })
+        // this.setState({
+        //     username: '',
+        //     email: '',
+        //     password: '',
+        //     passwordConfirm: ''
+
+        // })
     }
 
 
     render() {
         return (
             <div>
+                <NavLink className="nav-link border-pop back" to='/' exact>Back</NavLink>
                 <h3>Create New User</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className='form-group'>
@@ -111,7 +115,7 @@ export default class CreateUser extends Component {
                             onChange={this.onChangePasswordConfirmation}
                         />
                     </div>
-                    {/* <Login/> */}
+               
                     <div className='form-group'>
                         <input type='submit' value='Sign up!' className='btn btn-primary' />
                     </div>

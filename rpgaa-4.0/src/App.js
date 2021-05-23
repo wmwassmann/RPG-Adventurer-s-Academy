@@ -16,23 +16,28 @@ import SkipTutorial from './pages/CharacterCreation/SkipTutorial';
 import CharacterSheet from './pages/CharacterSheet/CharacterSheet';
 import EditCharacter from './components/SavedCharacters/EditCharacter';
 import CreateUser from './components/User/CreateUser';
+import LoginUser from './components/User/LoginUser';
 import Gameplay from './pages/Gameplay/Gameplay';
-
+import Auth from './components/Auth/Auth';
+import Navbar from './components/Navbar/Navbar';
 
 
 
 function App() {
+  
   return (
     <Router>
-      <Switch>
-  
+      <Navbar/>
+      <Switch>  
         <div>
           <Route exact path='/' component={MainMenu}/>
           <Route exact path='/edit/:id' component={EditCharacter}/>
+      
  
           <Route exact path='/creator' component={CharacterCreation}/>
           <Route exact path='/gameplay' component={Gameplay} />
-          <Route exact path='/user' component={CreateUser}/>
+          <Route exact path='/signup' component={CreateUser}/>
+          <Route exact path='/login' component={LoginUser}/>
           <Route exact path='/landing' component={LandingPage}/>         
           <Route exact path='/tutorial' component={Tutorial} />
           <Route exact path='/skip' component={SkipTutorial} />
@@ -44,6 +49,7 @@ function App() {
           <Route exact path='/gym' component={Gymnasium} />
           <Route exact path='/gadget' component={GadgetShop} />
           <Route exact path='/sheet' component={CharacterSheet} />
+          <Route exact path='/auth' component={Auth} />
         </div>
 
 
