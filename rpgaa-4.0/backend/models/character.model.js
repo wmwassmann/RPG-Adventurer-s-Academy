@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema;
 
 const charactersSchema = new Schema({
-    // username: { type: String, required: true },
+    username: { type: String, required: true },
     characterName: { type: String, required: true },
     gender: { type: String, required: true },
     alignment: { type: String, required: true },

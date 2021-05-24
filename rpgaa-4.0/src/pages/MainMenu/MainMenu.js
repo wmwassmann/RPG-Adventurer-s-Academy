@@ -12,22 +12,10 @@ export default function MainMenu() {
             <h1>RPG: Adventurer's Academy</h1>
             <ul>
                 <li>
-                    <NavLink className="nav-link border-pop back" to='/gameplay' exact>Play</NavLink>
-                </li>
-                <li>
-                    <NavLink className="nav-link border-pop" to='/user' exact>Character New User</NavLink>
-                </li>
-                <li>
-                    <NavLink className="nav-link border-pop" to='/creator' exact>Character Creator</NavLink>
-                </li>
-                <li>
-                    <NavLink className="nav-link border-pop" to='/saved' exact>Saved Characters</NavLink>
+                    <NavLink className="nav-link border-pop" to='/play' exact>Play</NavLink>
                 </li>
                 <li>
                     <NavLink className="nav-link border-pop" to='/practice' exact>Practice Rooms</NavLink>
-                </li>
-                <li>
-                    <NavLink className="nav-link border-pop" to='/auth' exact>Auth</NavLink>
                 </li>
             </ul>
         </div>

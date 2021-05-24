@@ -1,23 +1,72 @@
 import mongoose from 'mongoose'
 
 
- 
+
 const usersSchema = mongoose.Schema({
-    username: { 
-        type: String,
-        required: true,         
-    },
-    email: { 
-        type: String,
-        required: true,    
-    },
-    password: { 
+    username: {
         type: String,
         required: true,
     },
-    passwordConfirm: { 
+    email: {
         type: String,
         required: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    },
+    passwordConfirm: {
+        type: String,
+        required: true,
+    },
+    character: {
+        characterName: { type: String, default: 'Slate', required: false, },
+        gender: { type: String, default: 'N/A', required: false, },
+        race: { type: String, default: 'Human', required: false, },
+
+        alignment: {
+            trendingAlignment: { type: String, default: 'True Neutral', required: false, },
+            trendingAlignmentStats: {
+                good: { type: Number, default: 0, required: false, },
+                evil: { type: Number, default: 0, required: false, },
+                lawful: { type: Number, default: 0, required: false, },
+                chaotic: { type: Number, default: 0, required: false, },
+            }
+        },
+
+        charClass: {
+            selectedSchool: { type: String, default: 'Pleb', required: false, },
+            trendingSchool: {
+                divinity: { type: Number, default: 0, required: false, },
+                nature: { type: Number, default: 0, required: false, },
+                arcane: { type: Number, default: 0, required: false, },
+                vocation: { type: Number, default: 0, required: false, },
+            },
+            divinity: {
+                majorPaladin: { type: Number, default: 0, required: false, },
+                majorCleric: { type: Number, default: 0, required: false, },
+                majorMonk: { type: Number, default: 0, required: false, },
+            },
+            nature: {
+                majorWizard: { type: Number, default: 0, required: false, },
+                majorBard: { type: Number, default: 0, required: false, },
+                majorWarlock: { type: Number, default: 0, required: false, },
+            },
+            arcane: {
+                majorRanger: { type: Number, default: 0, required: false, },
+                majorBarbarian: { type: Number, default: 0, required: false, },
+                majorDruid: { type: Number, default: 0, required: false, },
+            },
+            vocation: {
+                majorFighter: { type: Number, default: 0, required: false, },                
+                majorSorcerer: { type: Number, default: 0, required: false, },
+                majorRogue: { type: Number, default: 0, required: false, }
+
+            }
+        },
+
+
+
     }
 }, {
     timestamps: true,
@@ -35,7 +84,7 @@ export default mongoose.model('Users', usersSchema)
 
 // const Schema = mongoose.Schema;
 
- 
+
 // const usersSchema = new Schema({
 //     username: { 
 //         type: String,

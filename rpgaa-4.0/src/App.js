@@ -15,8 +15,6 @@ import Tutorial from './pages/CharacterCreation/Tutorial';
 import SkipTutorial from './pages/CharacterCreation/SkipTutorial';
 import CharacterSheet from './pages/CharacterSheet/CharacterSheet';
 import EditCharacter from './components/SavedCharacters/EditCharacter';
-import CreateUser from './components/User/CreateUser';
-import LoginUser from './components/User/LoginUser';
 import Gameplay from './pages/Gameplay/Gameplay';
 import Auth from './components/Auth/Auth';
 import Navbar from './components/Navbar/Navbar';
@@ -36,12 +34,10 @@ function App() {
  
           <Route exact path='/creator' component={CharacterCreation}/>
           <Route exact path='/gameplay' component={Gameplay} />
-          <Route exact path='/signup' component={CreateUser}/>
-          <Route exact path='/login' component={LoginUser}/>
           <Route exact path='/landing' component={LandingPage}/>         
           <Route exact path='/tutorial' component={Tutorial} />
           <Route exact path='/skip' component={SkipTutorial} />
-          <Route exact path='/saved' component={SavedCharacters}/>
+          <Route exact path='/play' component={SavedCharacters}/>
           <Route exact path='/practice' component={PracticeRooms} />
           <Route exact path='/arena' component={Arena}/>
           <Route exact path='/tavern' component={Tavern}/>
