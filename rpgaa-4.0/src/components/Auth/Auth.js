@@ -16,7 +16,7 @@ const initialState = {
     username: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    passwordConfirm: ''
 
 }
 
@@ -24,7 +24,7 @@ const Signup = () => {
    
     const [showPassword, setShowPassword] = useState(false);
     const [isSignup, setIsSignup] = useState(false);
-    const [formData, setFormData] = useState(initialState);
+    const [form, setForm] = useState(initialState);
     const classes = useStyles();
     const dispatch = useDispatch()
     const history = useHistory()
@@ -34,27 +34,28 @@ const Signup = () => {
     }
 
 
-
+    // Signup and signin toggle
     const handleSubmit = (e) => {
         // Axios here
         e.preventDefault()
-        console.log(formData)
-        if(isSignup) {
-            dispatch(signup(formData, history))
+        console.log(form)
+        if (isSignup) {
+            dispatch(signup(form, history))
         } else {
-            dispatch(signin(formData, history))
+            dispatch(signin(form, history))
         }
 
     }
 
     const handleChange = (e) => {
 
-        setFormData({ ...formData, [e.target.name]: e.target.value })
+        setForm({ ...form, [e.target.name]: e.target.value })
     }
 
     const switchMode = () => {
+        setForm(initialState);
         setIsSignup((prevIsSignup) => !prevIsSignup);
-        handleShowPassword(false)
+        setShowPassword(false)
     }
 
     const googleSuccess = async (res) => {
@@ -94,7 +95,7 @@ const Signup = () => {
                         )}
                         <Input name='email' label='Email Address' handleChange={handleChange} type='email' />
                         <Input name='password' label='Password' handleChange={handleChange} type={showPassword ? 'text' : "password"} handleShowPassword={handleShowPassword} />
-                        {isSignup && <Input name='confirmPassword' label='Repeat Password' handleChange={handleChange} type='password' />}
+                        {isSignup && <Input name='passwordConfirm' label='Repeat Password' handleChange={handleChange} type='password' />}
                     </Grid>
                     <Button type='submit' fullWidth varient='contained' color='primary' className={classes.submit}>
                         {isSignup ? 'Sign Up' : "Sign In"}

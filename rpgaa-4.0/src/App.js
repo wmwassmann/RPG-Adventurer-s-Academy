@@ -31,7 +31,7 @@ function App() {
       <Switch>  
         <div>
           <Route exact path='/' component={MainMenu}/>
-          <Route exact path='/edit/:id' component={EditCharacter}/>
+          <Route exact path='/edit' component={EditCharacter}/>
       
  
           <Route exact path='/creator' component={CharacterCreation}/>

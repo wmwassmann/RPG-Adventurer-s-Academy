@@ -1,6 +1,11 @@
-const router = require('express').Router();
-let Character = require('../models/character.model');
-const { route } = require('./users');
+// const router = require('express').Router();
+// let Character = require('../models/character.model');
+// const { route } = require('./users');
+
+import express from 'express';
+const router = express.Router()
+
+import { Character } from '../models/character.model'
 
 // handles http characters requests
 router.route('/').get((req, res) => {
@@ -21,25 +26,7 @@ router.route('/add').post((req, res) => {
     const good = req.body.good;
     const evil = req.body.evil;
     const lawful = req.body.lawful;
-    const chaotic = req.body.chaotic;
-    
-    // const school = req.body.school;
-    // const divinity = req.body.divinity;
-    // const arcane = req.body.arcane;
-    // const nature = req.body.nature;
-    // const vocation = req.body.vocation;
-    // const majorPaladin = req.body.majorPaladin;
-    // const majorCleric = req.body.majorCleric;
-    // const majorMonk = req.body.majorMonk;
-    // const majorWizard = req.body.majorWizard;
-    // const majorSorcerer = req.body.majorSorcerer;
-    // const majorWarlock = req.body.majorWarlock;
-    // const majorRanger = req.body.majorRanger;
-    // const majorBarbarian = req.body.majorBarbarian;
-    // const majorDruid = req.body.majorDruid;
-    // const majorFighter = req.body.majorFighter;
-    // const majorBard = req.body.majorBard;
-    // const majorRogue = req.body.majorRogue;
+    const chaotic = req.body.chaotic;    
 
     const newCharacter = new Character({
         username,
@@ -117,5 +104,5 @@ router.route('/update/:id').post((req, res) => {
 
 
 
-module.exports = router;
+export default router;
 
