@@ -8,7 +8,10 @@ export default function SavedCharacters() {
 
     return (
         <div>
-            <NavLink className="nav-link border-pop" to='/' exact>Back</NavLink>
+            <div>
+                <NavLink className="nav-link border-pop" to='/' exact>Back</NavLink>
+                <NavLink className="nav-link border-pop" to='/gameplay' exact>Play</NavLink>
+            </div>
             <Characters />
 
         </div>

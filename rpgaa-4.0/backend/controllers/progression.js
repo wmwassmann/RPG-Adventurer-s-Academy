@@ -2,7 +2,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 
-import Characters from '../models/character.model.js';
+import Characters from '../models/users.model.js';
 
 const router = express.Router();
 

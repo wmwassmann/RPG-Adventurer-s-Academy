@@ -24,15 +24,18 @@ const usersSchema = mongoose.Schema({
         gender: { type: String, default: 'N/A', required: false, },
         race: { type: String, default: 'Human', required: false, },
 
+
         alignment: {
             trendingAlignment: { type: String, default: 'True Neutral', required: false, },
             trendingAlignmentStats: {
-                good: { type: Number, default: 0, required: false, },
-                evil: { type: Number, default: 0, required: false, },
-                lawful: { type: Number, default: 0, required: false, },
-                chaotic: { type: Number, default: 0, required: false, },
+                good: { type: Number, default: 1, required: false, },
+                evil: { type: Number, default: 1, required: false, },
+                lawful: { type: Number, default: 1, required: false, },
+                chaotic: { type: Number, default: 1, required: false, },
             }
+
         },
+
 
         charClass: {
             selectedSchool: { type: String, default: 'Pleb', required: false, },

@@ -42,6 +42,7 @@ export const signup = async (req, res) => {
 
         const result = await Users.create({ username: `${username}`, email, password: hashedPassword, passwordConfirm: hashedPasswordConfirm })
 
+
         const token = jwt.sign({ username: result.username, email: result.email, id: result._id }, 'test', { expiresIn: '1h'});
         
         res.status(200).json( { result, token }) 
@@ -51,6 +52,31 @@ export const signup = async (req, res) => {
         console.log(error);
     }
 }
+
+export const updateCharacter = async (req, res) => {
+    const { id } = req.params;
+    const { good, evil, lawful, chaotic } = req.body;
+    
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No Character with id: ${id}`);
+
+    const updatedCharacter = { good, evil, lawful, chaotic, _id: id };
+
+    await Users.findByIdAndUpdate(id, updatedCharacter, { new: true });
+
+    res.json(updatedCharacter);
+}
+
+export const deleteCharacter = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No Character with id: ${id}`);
+
+    await Users.findByIdAndRemove(id);
+
+    res.json({ message: "Character deleted successfully." });
+}
+
+
 
 
 

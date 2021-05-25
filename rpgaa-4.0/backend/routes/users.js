@@ -4,8 +4,9 @@ const router = express.Router();
 
 
 import User from '../models/users.model.js'
-import { signin, signup } from '../controllers/users.js';
+import { signin, signup, updateCharacter, deleteCharacter } from '../controllers/users.js';
 
+import auth from '../middleware/auth.js'
 
 router.route('/').get((req, res) => {
     User.find()
@@ -15,6 +16,12 @@ router.route('/').get((req, res) => {
 
 router.post("/signin", signin)  
 router.post("/signup", signup)
+
+router.patch('/:id', auth, updateCharacter)
+router.delete('/:id', auth, deleteCharacter)
+
+
+
 
 // module.exports = router;
 
