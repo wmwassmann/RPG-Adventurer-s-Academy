@@ -67,6 +67,16 @@ const usersSchema = mongoose.Schema({
 
             }
         },
+        
+        abilityScores: {
+            strength: { type: Number, default: 10, required: false, },
+            dexterity: { type: Number, default: 10, required: false, },
+            constitution: { type: Number, default: 10, required: false, },
+            intelligence: { type: Number, default: 10, required: false, },
+            wisdom: { type: Number, default: 10, required: false, },
+            charisma: { type: Number, default: 10, required: false, },
+        }
+
 
 
 
