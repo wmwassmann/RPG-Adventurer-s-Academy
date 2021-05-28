@@ -1,17 +1,30 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 
-import './css/gameplay-style.css'
+import StanceSelector from '../../components/CharacterSheet/StanceSelector'
+import SetLocalStorage from '../../components/Gameplay/SetLocalStorage'
+import TextBox from '../../components/Gameplay/Textbox'
 
-export default function Gameplay() {
+import useStyles from './css/Style.js';
+
+
+const Gameplay = () => {
+
+   const classes = useStyles()
+
+
     return (
         <div>
-            <NavLink className="nav-link border-pop" to='/' exact>Back</NavLink>
-       
+            <SetLocalStorage /> 
 
-            <div>
-                Gameplay
+
+            <div className={classes.playScreen}>
+                <TextBox />             
+            </div>
+            <div className={classes.charToolbar}>
+                <StanceSelector/>
             </div>
         </div>
     )
 }
+
+export default Gameplay

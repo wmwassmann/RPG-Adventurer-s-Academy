@@ -19,6 +19,7 @@ const usersSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+
     character: {
         characterName: { type: String, default: 'Slate', required: false, },
         gender: { type: String, default: 'N/A', required: false, },
@@ -75,6 +76,10 @@ const usersSchema = mongoose.Schema({
             intelligence: { type: Number, default: 10, required: false, },
             wisdom: { type: Number, default: 10, required: false, },
             charisma: { type: Number, default: 10, required: false, },
+        },
+
+        currentNpc: {
+            argusTimbers: { type: String, default: 'Argus Timbers', required: false }
         }
 
 

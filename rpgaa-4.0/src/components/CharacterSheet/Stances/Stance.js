@@ -7,7 +7,7 @@ import './css/stance-style.css'
 
 
 export default class Stance extends Component {
-
+    
     constructor(props) {
         super(props);
 
@@ -28,10 +28,10 @@ export default class Stance extends Component {
      
         e.preventDefault()
 
-        const handleStance = document.getElementById('stance-display-container')
+        localStorage.setItem('Stance', stance)
 
         // Displays a sample output in the DOM of the current selected stance. 
-        handleStance.innerHTML = stance
+    
 
         // imports the selected_stance.  Might not need to have a toggle system in place, but I like to do both?
         this.props.selected_stance(this.props.stance)
@@ -45,18 +45,13 @@ export default class Stance extends Component {
 
 
         return (
-            <div className='stance-container'>
-
-                <div className='stance-display-container' id='stance-display-container'>
-                    {/* Stance content is dynamically generated here */}
-                </div>
-             
+            <div className='stance-container'>            
                 <div className='stance-btn-container'>
                     <button className='stance-btn' id={`${stance}-button`} onClick={this.handle_stance}>
                         {stance}
                     </button>
                 </div>
-
+                
             </div>
         )
     }

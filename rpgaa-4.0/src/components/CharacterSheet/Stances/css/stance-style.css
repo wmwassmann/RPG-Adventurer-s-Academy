@@ -1,15 +1,28 @@
 
-.stance-display-container {
-    position: absolute;
+
+/* .charactersheet-btn-container {
+   margin-top: 300px;
+} */
+
+
+.stance-container {
+   background-color: rgb(104, 50, 0);   
 }
 
-.stance-btn-container {  
-    position: relative;
-    top: 575px;
-    padding: 15px;
+
+
+.stance-btn-container {
+    display: flex;
+    justify-content: center;
+    
 }
 
 .stance-btn {  
-    height: 20px;
-    width: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items:  center;
+    border-radius: 50%;
+    height: 64px;
+    width: 64px;
+    margin: 20px;    
 }

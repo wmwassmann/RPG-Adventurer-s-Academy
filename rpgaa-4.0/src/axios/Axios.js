@@ -13,6 +13,9 @@ API.interceptors.request.use((req) => {
 
 
 
+
+export const getDialog = () => API.get('/dialogs');
+
 export const updateCharacter = (id, updatedCharacter) => API.patch(`/edit/${id}`, updatedCharacter);
 
 export const deleteCharacter = (id) => API.delete(`/edit/${id}`);
@@ -22,3 +25,6 @@ export const deleteCharacter = (id) => API.delete(`/edit/${id}`);
 export const signUp = (formData) => API.post('/users/signup', formData);
 
 export const signIn = (formData) => API.post('/users/signin', formData);
+
+
+

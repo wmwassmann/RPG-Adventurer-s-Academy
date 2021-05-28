@@ -9,7 +9,7 @@ import { signup, signin } from '../../actions/auth'
 
 
 import { GoogleLogin } from 'react-google-login'
-import { NavLink, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 const initialState = {
@@ -44,12 +44,12 @@ const Signup = () => {
         } else {
             dispatch(signin(form, history))
         }
-
+    
     }
 
     const handleChange = (e) => {
-
         setForm({ ...form, [e.target.name]: e.target.value })
+        
     }
 
     const switchMode = () => {

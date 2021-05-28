@@ -2,12 +2,11 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import './css/modal-style.css'
 
-import EditCharacter from '../SavedCharacters/EditCharacter'
 
-export default function WelcomeModal({ open, children }) {
+
+export default function Modal({ open, children }) {
     if (!open) return null
-
-
+ 
 
 
 
@@ -16,10 +15,9 @@ export default function WelcomeModal({ open, children }) {
 
         <>
             <div className='modal-overlay' />
-            <div className='modal-container'>
-               
+            <div className='modal-container'>          
 
-            <EditCharacter />
+            {children}
         
            
             </div>

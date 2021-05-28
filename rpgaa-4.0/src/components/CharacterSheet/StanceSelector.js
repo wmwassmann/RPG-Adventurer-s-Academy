@@ -25,27 +25,27 @@ export class CharacterSheet extends React.Component {
         this.state= {
             stances: [
                 {
-                    stance: 'Offense',
+                    stance: 'Atk',
                     tag: 'offense',
-                    display: 'Offence',
+                    display: 'Atk',
                     playerKey: ''
                 },
                 {
-                    stance: 'Defense',
+                    stance: 'Def',
                     tag: 'defense',
-                    display: 'Defense',
+                    display: 'Def',
                     playerKey: ''
                 },
                 {
-                    stance: 'Utility',
+                    stance: 'Util',
                     tag: 'utility',
-                    display: 'Utility',
+                    display: 'Util',
                     playerKey: ''
                 },
                 {
-                    stance: 'Roleplay',
+                    stance: 'RP',
                     tag: 'roleplay',
-                    display: 'Roleplay',
+                    display: 'RP',
                     playerKey: ''
                 }
             ]            

@@ -7,8 +7,7 @@ export default function MainMenu() {
 
 
     return (
-        <div>
-            <NavLink className="nav-link border-pop back" to='/landing' exact>Back</NavLink>
+        <div>          
             <h1>RPG: Adventurer's Academy</h1>
             <ul>
                 <li>
