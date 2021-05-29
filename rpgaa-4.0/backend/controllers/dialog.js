@@ -9,11 +9,11 @@ const router = express.Router();
 
 
 export const add = async (req, res) => {
-    const {  characterName, playerAlignment, LineOne, LineTwo, LineThree, LineFour, LineFive, LineSix, LineSeven, LineEight } = req.body
+    const {  characterName, playerAlignment, lines } = req.body
 
     try {        
 
-        const result = await Dialogs.create({ characterName, playerAlignment, LineOne, LineTwo, LineThree, LineFour, LineFive, LineSix, LineSeven, LineEight })
+        const result = await Dialogs.create({ characterName, playerAlignment, lines })
 
         res.status(200).json({ result }) 
         

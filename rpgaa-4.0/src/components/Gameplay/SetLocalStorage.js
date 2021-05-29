@@ -20,42 +20,32 @@ const Gameplay = () => {
 
     }, [location])
 
-    const characterName = user?.result.character.characterName
-    const gender = user?.result.character.gender
-    const race = user?.result.character.race
-    const trendingAlignment = user?.result.character.alignment.trendingAlignment
-    const alignmentGood = user?.result.character.alignment.trendingAlignmentStats.good
-    const alignmentEvil = user?.result.character.alignment.trendingAlignmentStats.evil
-    const alignmentLawful = user?.result.character.alignment.trendingAlignmentStats.lawful
-    const alignmentChaotic = user?.result.character.alignment.trendingAlignmentStats.chaotic
-    const trendingSchool = user?.result.character.charClass.selectedSchool
-    const str = user?.result.character.abilityScores.strength
-    const dex = user?.result.character.abilityScores.dexterity
-    const con = user?.result.character.abilityScores.constitution
-    const int = user?.result.character.abilityScores.intelligence
-    const wis = user?.result.character.abilityScores.wisdom
-    const cha = user?.result.character.abilityScores.charisma
 
 
 
+    const { characterName, gender, race } = user.result.character
+    const { trendingAlignment } = user.result.character.alignment
+    const { good, evil, lawful, chaotic } = user.result.character.alignment.trendingAlignmentStats
+    const trendingSchool = user.result.character.charClass.selectedSchool
+    const { strength, dexterity, constitution, intelligence, wisdom, charisma } = user.result.character.abilityScores
 
     localStorage.setItem('characterName', characterName)
     localStorage.setItem('gender', gender)
     localStorage.setItem('race', race)
     localStorage.setItem('trendingAlignment', trendingAlignment)
-    localStorage.setItem('good', alignmentGood)
-    localStorage.setItem('evil', alignmentEvil)
-    localStorage.setItem('lawful', alignmentLawful)
-    localStorage.setItem('chaotic', alignmentChaotic)
+    localStorage.setItem('good', good)
+    localStorage.setItem('evil', evil)
+    localStorage.setItem('lawful', lawful)
+    localStorage.setItem('chaotic', chaotic)
     localStorage.setItem('trendingSchool', trendingSchool)
 
 
-    localStorage.setItem('strength', str)
-    localStorage.setItem('dexterity', dex)
-    localStorage.setItem('constitution', con)
-    localStorage.setItem('intelligence', int)
-    localStorage.setItem('wisdom', wis)
-    localStorage.setItem('charisma', cha)
+    localStorage.setItem('strength', strength)
+    localStorage.setItem('dexterity', dexterity)
+    localStorage.setItem('constitution', constitution)
+    localStorage.setItem('intelligence', intelligence)
+    localStorage.setItem('wisdom', wisdom)
+    localStorage.setItem('charisma', charisma)
 
     
     return (
