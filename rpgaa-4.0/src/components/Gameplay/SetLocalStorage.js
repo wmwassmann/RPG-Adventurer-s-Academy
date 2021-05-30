@@ -25,7 +25,6 @@ const Gameplay = () => {
 
     const { characterName, gender, race } = user.result.character
     const { trendingAlignment } = user.result.character.alignment
-    const { good, evil, lawful, chaotic } = user.result.character.alignment.trendingAlignmentStats
     const trendingSchool = user.result.character.charClass.selectedSchool
     const { strength, dexterity, constitution, intelligence, wisdom, charisma } = user.result.character.abilityScores
 
@@ -33,10 +32,7 @@ const Gameplay = () => {
     localStorage.setItem('gender', gender)
     localStorage.setItem('race', race)
     localStorage.setItem('trendingAlignment', trendingAlignment)
-    localStorage.setItem('good', good)
-    localStorage.setItem('evil', evil)
-    localStorage.setItem('lawful', lawful)
-    localStorage.setItem('chaotic', chaotic)
+
     localStorage.setItem('trendingSchool', trendingSchool)
 
 

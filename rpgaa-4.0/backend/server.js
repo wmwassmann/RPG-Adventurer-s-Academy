@@ -7,6 +7,8 @@ import cors from 'cors';
 
 import usersRouter from "./routes/users.js";
 import dialogRouter from "./routes/dialog.js";
+import narrationRouter from "./routes/narration.js";
+
 
 const app = express();
 const connection = mongoose.connection;
@@ -18,6 +20,7 @@ app.use(cors());
 
 app.use("/users", usersRouter);
 app.use("/dialogs", dialogRouter);
+app.use("/narration", narrationRouter);
 
 const ATLAS_URI = 'mongodb+srv://wmwassmann:thunderThunderTHUNDERCATSh0000@rpgaa.59ktj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const PORT = process.env.PORT|| 5000;

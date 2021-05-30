@@ -15,6 +15,7 @@ API.interceptors.request.use((req) => {
 
 
 export const getDialog = () => API.get('/dialogs');
+export const getNarration = () => API.get('/dialogs/narration');
 
 export const updateCharacter = (id, updatedCharacter) => API.patch(`/edit/${id}`, updatedCharacter);
 

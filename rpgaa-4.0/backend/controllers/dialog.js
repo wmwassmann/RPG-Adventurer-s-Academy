@@ -5,10 +5,11 @@ import express from 'express';
 
 import Dialogs from "../models/dialog.model.js";
 
+
 const router = express.Router();
 
 
-export const add = async (req, res) => {
+export const addNpcLines = async (req, res) => {
     const {  characterName, playerAlignment, lines } = req.body
 
     try {        
@@ -23,6 +24,7 @@ export const add = async (req, res) => {
         console.log(error);
     }
 }
+
 
 
 
@@ -44,5 +46,6 @@ export const getDialog = async (req, res) => {
         console.log(error);
     }
 }
+
 
 export default router

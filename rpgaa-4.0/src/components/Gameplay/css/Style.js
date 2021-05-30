@@ -1,11 +1,8 @@
+
 import { makeStyles } from '@material-ui/core/styles';
 
+
 export default makeStyles(() => ({
-    textButton: {
-        borderRadius: '50%',
-        width: '50px',
-        height: '50px'
-    },
     container: {
         paddingTop: '20px;',
         paddingLeft: '20px;',
@@ -20,6 +17,12 @@ export default makeStyles(() => ({
     dialogBox: {
         height: '150px',
         width: '300px'
-        
+    },
+    answerBox: {
+        position: 'relative',
+        top: '60px',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     }
 }));

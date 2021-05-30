@@ -42,3 +42,17 @@ export const dialog = () => async (dispatch) => {
       console.log(error, "Actions error");
     }
   };
+
+export const narration = () => async (dispatch) => {
+    try {
+    
+
+      const { data } = await api.getNarration();
+  
+      dispatch({ type: FETCH_DIALOG, payload: data });
+   
+      console.log('Success Actions Auth')
+    } catch (error) {
+      console.log(error, "Actions error");
+    }
+  };

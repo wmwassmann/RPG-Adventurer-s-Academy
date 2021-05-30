@@ -4,10 +4,12 @@ import Modal from '../Modals/Modal'
 import useStyle from './css/Style.js'
 import { useDispatch, useSelector } from 'react-redux';
 import Dialog from './Dialog/LandingDialog'
+import argusTimbers from './img/dwarf-mage-3.png'
+import './css/dialog-style.css'
 
 
-const Textbox = () => { 
-  
+const Textbox = () => {
+
     const dialogBlock = useSelector((state) => state.dialogs)
 
     const [isOpen, setIsOpen] = useState(false)
@@ -18,39 +20,48 @@ const Textbox = () => {
 
 
 
-   
+
 
 
     const handleModal = () => {
-        setIsOpen(true)        
+        setIsOpen(true)
     }
 
-    
+
 
     const handleTimbers = (e) => {
         // localStorage.setItem('currentNpc', '/argus') 
         // const newNpc = localStorage.getItem('currentNpc')   
-      
-        e.preventDefault() 
+
+        e.preventDefault()
         handleModal()
-    
-       
-        
+
+        console.log(dialogBlock)
+
         // dispatch(dialog())
-    
+
     }
 
 
 
     return (
         <div>
-            <Modal open={isOpen}>    
-            
-               
-                <Dialog/>
-               
+            <Modal open={isOpen}>
+
+
+                <Dialog />
+
             </Modal>
-            <button className={classes.textButton} onClick={handleTimbers}>Play</button>
+            <Modal open={isOpen}>
+
+
+                <Dialog />
+
+            </Modal>
+            
+                <button className='argusTimbers' onClick={handleTimbers}></button>
+
+           
         </div>
     )
 }

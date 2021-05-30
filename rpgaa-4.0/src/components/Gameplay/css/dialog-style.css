@@ -1,0 +1,15 @@
+.argusTimbers {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: url(../img/dwarf-mage-3.png) no-repeat top left;
+    background-size: contain;
+}
+
+.argusTimbers:hover {
+    width: 400px;
+    height: 400px;
+    
+}
