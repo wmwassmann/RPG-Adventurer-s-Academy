@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core'
 import useStyles from './Style';
+import './css/auth-style.css';
 import Input from './Input';
 import Icon from './Icon';
 import { useDispatch } from 'react-redux';
 import { AUTH } from '../../constants/actionTypes';
 import { signup, signin } from '../../actions/auth'
-
+import Mascot from './img/dwarf-mage-1.png'
 
 import { GoogleLogin } from 'react-google-login'
 import { useHistory } from 'react-router-dom'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 const initialState = {
     username: '',
@@ -77,13 +77,11 @@ const Signup = () => {
     }
 
     return (
-        <div>
+        <div className='auth-background'>
        
         <Container component="main" maxWidth="xs">
             <Paper className={classes.paper} elevation={3}>
-                <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon />
-                </Avatar>
+                <img className={classes.mascot}src={Mascot} alt='mascot'/>
                 <Typography component="h1" variant="h5">{ isSignup ? 'Sign up' : 'Sign in'}</Typography>
 
                 <form className={classes.form} onSubmit={handleSubmit}>

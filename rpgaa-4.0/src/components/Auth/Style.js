@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   paper: {
+    background: 'transparent',
     marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
@@ -13,10 +14,10 @@ export default makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+  mascot: {
+    width: '200px'
   },
+
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(3),
