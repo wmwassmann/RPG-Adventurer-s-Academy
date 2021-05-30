@@ -24,5 +24,15 @@ export default makeStyles(() => ({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between'
+    },
+    answerButton: {
+        backgroundColor: 'rgb(119, 73, 30)',
+        color: 'white',
+        position: 'relative',
+        border: 'solid 1px black',
+        borderRadius: '5px',
+        right: '55px',
+        width: '350px',
+        height: '40px'
     }
 }));
