@@ -5,6 +5,7 @@ import SetLocalStorage from '../../components/Gameplay/SetLocalStorage'
 import TextBox from '../../components/Gameplay/Textbox'
 
 import useStyles from './css/Style.js';
+import './css/gameplay-style.css'
 
 
 const Gameplay = () => {
@@ -13,7 +14,7 @@ const Gameplay = () => {
 
 
     return (
-        <div>
+        <div className='gameplay-screen-background'>
             <SetLocalStorage /> 
 
 

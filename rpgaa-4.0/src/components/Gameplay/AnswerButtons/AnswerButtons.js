@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import useStyles from '../css/Style.js'
+import './css/answer-style.css'
 
 const AnswerButtons = () => {
     const [currentGood, setCurrentGood] = useState(0)
@@ -83,11 +84,11 @@ const AnswerButtons = () => {
     return (
         <div>            
             <div className={classes.answerBox}>
-                <div className={classes.answerButton}>
-                    <button onClick={answerOne}>Answer One</button>
+                <div>
+                    <button className='answerButton' onClick={answerOne}>Answer LG</button>
                 </div>
-                <div className={classes.answerButton}>
-                    <button onClick={answerTwo}>Answer Two</button>
+                <div>
+                    <button className='answerButton' onClick={answerTwo}>Answer CE</button>
                 </div>
             </div>
         </div>

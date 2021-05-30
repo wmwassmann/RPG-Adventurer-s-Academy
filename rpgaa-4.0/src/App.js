@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { dialog } from './actions/auth'
+import { dialog } from './actions/auth';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -14,6 +14,7 @@ import Tavern from './pages/PracticeRooms/Tavern';
 import Library from './pages/PracticeRooms/Library';
 import Gymnasium from './pages/PracticeRooms/Gymnasium';
 import GadgetShop from './pages/PracticeRooms/GadgetStop';
+import Intro from './pages/Intro/Intro.js';
 
 
 import EditCharacter from './components/SavedCharacters/EditCharacter';
@@ -39,7 +40,7 @@ const App = () => {
           <Route exact path='/' component={MainMenu}/>
           <Route exact path='/edit' component={EditCharacter}/>
       
- 
+          <Route exact path='/intro' component={Intro} />
           <Route exact path='/gameplay' component={Gameplay} />
           <Route exact path='/landing' component={LandingPage}/>         
           <Route exact path='/play' component={SavedCharacters}/>

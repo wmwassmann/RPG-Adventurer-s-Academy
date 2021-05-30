@@ -5,12 +5,13 @@ import { deepPurple } from '@material-ui/core/colors';
 
 export default makeStyles((theme) => ({
     playScreen: {
-      zIndex: '1'
+      zIndex: '1',
+      height: '560px',
     },
     
     charToolbar: {    
       position: 'fixed',
-      top: '636px',
+      
       zIndex: '100000'
     },
  
