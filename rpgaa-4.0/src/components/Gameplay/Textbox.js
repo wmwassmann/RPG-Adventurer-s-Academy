@@ -24,7 +24,7 @@ const Textbox = () => {
 
 
     const handleModal = () => {
-        setIsOpen(true)
+        setIsOpen(!isOpen)
     }
 
 
@@ -46,18 +46,13 @@ const Textbox = () => {
 
     return (
         <div>
-            <Modal open={isOpen}>
+            <Modal open={isOpen} close={!isOpen}>
 
 
                 <Dialog />
 
             </Modal>
-            <Modal open={isOpen}>
-
-
-                <Dialog />
-
-            </Modal>
+    
             
                 <button className='argusTimbers' onClick={handleTimbers}></button>
 

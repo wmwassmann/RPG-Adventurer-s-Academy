@@ -5,6 +5,8 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import useStyles from './css/Style';
 import { NavLink } from 'react-router-dom'
+import './css/nav-style.css'
+
 
 const Navbar = () => {
 
@@ -30,7 +32,8 @@ const Navbar = () => {
 
 
     return (
-        <div>
+        <div className='nav-wrapper'>
+          
             
             <AppBar className={classes.appBar} position="static" color="inherit">
             <NavLink to='/' exact>Back</NavLink>     

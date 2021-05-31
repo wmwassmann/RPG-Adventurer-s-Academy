@@ -1,0 +1,11 @@
+
+.nav-wrapper {
+    max-width: 414px;
+}
+
+
+@media all and (max-width: 414px) {
+    .nav-wrapper {
+        max-width: 414px;
+    }
+}

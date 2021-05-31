@@ -1,16 +1,17 @@
 
 .modal-container {
     position: fixed;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -70%);
     background-color: white;
     width: 350px;
-    height: 230px;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px 2px;
+    height: 330px;
+    padding: 10px;    
     z-index: 1000;    
+    background: url(../img/tornpaperbackground.png) no-repeat top;
+    
+    background-size: contain;
 }
 
 .modal-overlay {

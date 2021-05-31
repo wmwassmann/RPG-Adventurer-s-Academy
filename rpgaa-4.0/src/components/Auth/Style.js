@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   paper: {
-    background: 'transparent',
+    background: 'rgb(130 164 169 / 42%)',
     marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
@@ -27,11 +27,11 @@ export default makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
   text: {
-    color: 'white'
+    color: 'black'
   },
   googleButton: {
     marginBottom: theme.spacing(2),
-    color: 'white'
+    color: 'black'
    
   },
 }));
