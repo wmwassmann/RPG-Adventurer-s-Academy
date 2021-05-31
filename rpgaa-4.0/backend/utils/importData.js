@@ -11,4 +11,4 @@
 
 // connectDB()
 
-// const users = JSON.parse(fs.readFileSync(`${_dirname}/dialogs`))
+// const users = JSON.parse(fs.readFileSync(`${_dirname}/users`))

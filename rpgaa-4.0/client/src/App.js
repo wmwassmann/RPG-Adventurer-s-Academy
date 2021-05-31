@@ -37,14 +37,14 @@ const App = () => {
   
   return (
     <Router>
-      <Route exact path='/auth' component={Auth} />
+      
       <Navbar/>
       <Switch>  
         
         <div>
           <Route exact path='/' component={MainMenu}/>
           <Route exact path='/edit' component={EditCharacter}/>
-      
+          <Route exact path='/auth' component={Auth} />
           <Route exact path='/intro' component={Intro} />
           <Route exact path='/gameplay' component={Gameplay} />
           <Route exact path='/landing' component={LandingPage}/>         
