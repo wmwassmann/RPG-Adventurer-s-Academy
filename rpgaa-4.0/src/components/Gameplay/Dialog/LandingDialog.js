@@ -14,7 +14,7 @@ import AnswerNavbar from '../AnswerButtons/AnswerNav.js';
 const Dialog = () => {
     const dialogBlock = useSelector((state) => state.dialogs)
     const [lineCount, setLineCount] = useState(0);
-    // const [currentBlock, setCurrentBlock] = useState(0)
+    const [argusBlock, setArgusBlock] = useState(localStorage.getItem('argusBlock'))
     const classes = useStyles()
 
     const user = JSON.parse(localStorage.getItem('profile'))
@@ -26,7 +26,7 @@ const Dialog = () => {
     localStorage.setItem('currentNpc', currentNpc)
 
     useEffect(() => {
-        const parsedLineCount = Number(localStorage.getItem('lineCount') || 0)
+        const parsedLineCount = Number(localStorage.getItem('lineCount') || 0)       
         if ('lineCount' === currentBlock.length) {
             setLineCount(0)
         } else {
@@ -36,7 +36,7 @@ const Dialog = () => {
     }, [])
 
     useEffect(() => {
-        localStorage.setItem('lineCount', lineCount)
+        localStorage.setItem('lineCount', lineCount)       
     }, [lineCount])
 
 
@@ -50,7 +50,6 @@ const Dialog = () => {
 
         } else {
             setLineCount(lineCount + 1)
-
         }
 
         e.preventDefault()
@@ -70,26 +69,10 @@ const Dialog = () => {
                 <button onClick={cycleDialog}>next</button>
             </div>
 
-            {/* <AnswerButtons /> */}
-            {/* Display in props - use this component to pass props in */}
             <AnswerNavbar>
                 <AnswerItem icon={<ArrowDropDownCircleIcon/> }>
                     <AnswerDropdown />
                 </AnswerItem>
-                {/* <button className={classes.answerButton}>
-                    <AnswerItem>Answer 1</AnswerItem>
-                </button>
-                <button className={classes.answerButton}>
-                    <AnswerItem>Answer 2</AnswerItem>
-                </button>
-                <button className={classes.answerButton}>
-                    <AnswerItem>Answer 3</AnswerItem>
-                </button>
-                <button className={classes.answerButton}>
-                    <AnswerItem>Answer 4</AnswerItem>
-                </button> */}
-
-
             </AnswerNavbar>
         </div>
     )

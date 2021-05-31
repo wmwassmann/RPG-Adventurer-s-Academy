@@ -10,13 +10,13 @@ import './css/dialog-style.css'
 
 const Textbox = () => {
 
-    const dialogBlock = useSelector((state) => state.dialogs)
+    // const dialogBlock = useSelector((state) => state.dialogs)
 
     const [isOpen, setIsOpen] = useState(false)
     const classes = useStyle()
     const dispatch = useDispatch()
 
-    console.log(dialogBlock)
+    // console.log(dialogBlock)
 
 
 
@@ -36,7 +36,7 @@ const Textbox = () => {
         e.preventDefault()
         handleModal()
 
-        console.log(dialogBlock)
+        // console.log(dialogBlock)
 
         // dispatch(dialog())
 

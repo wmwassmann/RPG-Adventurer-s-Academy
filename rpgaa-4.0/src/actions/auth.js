@@ -1,4 +1,4 @@
-import { AUTH, FETCH_DIALOG }  from '../constants/actionTypes'
+import { AUTH, FETCH_DIALOG, FETCH_NARRATION }  from '../constants/actionTypes'
 import * as api from '../axios/Axios.js'
 
 export const signin = (formData, router) => async (dispatch) => {
@@ -49,7 +49,7 @@ export const narration = () => async (dispatch) => {
 
       const { data } = await api.getNarration();
   
-      dispatch({ type: FETCH_DIALOG, payload: data });
+      dispatch({ type: FETCH_NARRATION, payload: data });
    
       console.log('Success Actions Auth')
     } catch (error) {

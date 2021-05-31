@@ -1,4 +1,4 @@
 .gameplay-screen-background {    
-    background: url(../img//northern_chimera-rotated.png) no-repeat top left;
-    background-size: auto;
+    background: url(../img/office.jpg) no-repeat center left -150px;
+    background-size: fill;
 }

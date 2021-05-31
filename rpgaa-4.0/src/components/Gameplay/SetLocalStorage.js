@@ -26,6 +26,7 @@ const Gameplay = () => {
     const { characterName, gender, race } = user.result.character
     const { trendingAlignment } = user.result.character.alignment
     const trendingSchool = user.result.character.charClass.selectedSchool
+    
     const { strength, dexterity, constitution, intelligence, wisdom, charisma } = user.result.character.abilityScores
 
     localStorage.setItem('characterName', characterName)
@@ -34,6 +35,14 @@ const Gameplay = () => {
     localStorage.setItem('trendingAlignment', trendingAlignment)
 
     localStorage.setItem('trendingSchool', trendingSchool)
+    // localStorage.setItem('divinity', divinity)
+    // localStorage.setItem('nature', nature)
+    // localStorage.setItem('arcane', arcane)
+    // localStorage.setItem('vocation', vocation)
+    localStorage.setItem('divinity', 0)
+    localStorage.setItem('nature', 0)
+    localStorage.setItem('arcane', 0)
+    localStorage.setItem('vocation', 0)
 
 
     localStorage.setItem('strength', strength)

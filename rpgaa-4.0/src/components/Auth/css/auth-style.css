@@ -1,7 +1,8 @@
 .auth-background {   
-    height: 670px;
+    height: 736px;
     position: relative;
-    bottom: 66px; 
-    background: url(../img/auth-background.png) no-repeat right;
+    bottom: 57px; 
+    background: url(../img/maxresdefault.jpg) no-repeat top;
+    
     background-size: fill;
 }

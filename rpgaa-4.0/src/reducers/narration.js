@@ -1,11 +1,10 @@
-import { FETCH_NARRATION} from '../constants/actionTypes';
+import { FETCH_NARRATION } from '../constants/actionTypes';
 
-export default (narrations = [], action) => {
+export default (narration = [], action) => {
   switch (action.type) { 
-    case FETCH_NARRATION:
-      
+    case FETCH_NARRATION:      
       return action.payload;
     default:
-      return narrations;
+      return narration;
   }
 };

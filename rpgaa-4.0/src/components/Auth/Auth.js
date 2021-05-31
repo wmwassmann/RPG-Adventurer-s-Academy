@@ -91,8 +91,8 @@ const Signup = () => {
                                 <Input name='username' handleChange={handleChange} label='User Name' autoFocus half />
                             </>
                         )}
-                        <Input name='email' label='Email Address' handleChange={handleChange} type='email' />
-                        <Input name='password' label='Password' handleChange={handleChange} type={showPassword ? 'text' : "password"} handleShowPassword={handleShowPassword} />
+                        <Input className={classes.text} name='email' label='Email Address' handleChange={handleChange} type='email' />
+                        <Input className={classes.text} name='password' label='Password' handleChange={handleChange} type={showPassword ? 'text' : "password"} handleShowPassword={handleShowPassword} />
                         {isSignup && <Input name='passwordConfirm' label='Repeat Password' handleChange={handleChange} type='password' />}
                     </Grid>
                     <Button type='submit' fullWidth varient='contained' color='primary' className={classes.submit}>
@@ -122,7 +122,7 @@ const Signup = () => {
            
                     <Grid container justify={'flex-end'}>
                         <Grid item>
-                            <Button onClick={switchMode}>
+                            <Button className={classes.text}  onClick={switchMode}>
                                 { isSignup ? 'Already have an account?' : 'Don\'t have an account?' }
                             </Button>
 

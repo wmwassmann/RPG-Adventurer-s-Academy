@@ -1,6 +1,5 @@
 
-.main-menu-background {
-   
+.main-menu-background {   
     height: 100vh;
     background: url(../img/menu-background.jpg) no-repeat;
     background-size: 514px 736px;
@@ -22,6 +21,7 @@
    font-family: Palatino, URW Palladio L, serif;
    font-size: 58px;
    background: -webkit-linear-gradient(-91deg, #1fcbff 5%, #ffffff 53%, #8a8a8a 91%);
+   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0.8px rgb(0, 0, 0);

@@ -6,12 +6,31 @@ import './css/answer-style.css'
 
 const AnswerDropdown = () => {
 
-    // const [activeMenu, setActiveMenu] = useState('main')
+    const divinity = 'divinity'
+    const arcane = 'arcane'
+    const nature = 'nature'
+    const vocation = 'vocation'
 
     const DropdownItem = (props) => {
+
+
+
+        const handleAnswer = (e) => {
+            e.preventDefault()
+            // console.log(props.school)
+            const school = JSON.parse(localStorage.getItem(`${props.school}`))
+
+
+            localStorage.setItem(`${props.school}`, (school + 1))
+            console.log(school)
+        
+        }
+
+
         return (
-            <button href='#' className='menu-item'>
+            <button href='#' className='menu-item' onClick={handleAnswer}>
                 {props.children}
+                
             </button>
         )
     }
@@ -27,10 +46,10 @@ const AnswerDropdown = () => {
             > */}
                 <div className='menu'>
 
-                    <DropdownItem>Answer One</DropdownItem>
-                    <DropdownItem>Answer Two</DropdownItem>
-                    <DropdownItem>Answer Three</DropdownItem>
-                    <DropdownItem>Answer Four</DropdownItem>
+                    <DropdownItem school={divinity}>Leadership and enlightment</DropdownItem>
+                    <DropdownItem school={arcane}>Thrill of magical studies</DropdownItem>
+                    <DropdownItem school={nature}>Wonders of the natural world</DropdownItem>
+                    <DropdownItem school={vocation}>Hands on experience</DropdownItem>
                 </div>
             {/* </CSSTransition> */}
         </div>

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { dialog } from './actions/auth';
+import { dialog, narration } from './actions/auth';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -29,13 +29,18 @@ const App = () => {
 
   useEffect(()=> {
     dispatch(dialog())
+    dispatch(narration())
 }, [dispatch])
+
+
 
   
   return (
     <Router>
+      <Route exact path='/auth' component={Auth} />
       <Navbar/>
       <Switch>  
+        
         <div>
           <Route exact path='/' component={MainMenu}/>
           <Route exact path='/edit' component={EditCharacter}/>
@@ -51,7 +56,7 @@ const App = () => {
           <Route exact path='/gym' component={Gymnasium} />
           <Route exact path='/gadget' component={GadgetShop} />
    
-          <Route exact path='/auth' component={Auth} />
+          
         </div>
 
 

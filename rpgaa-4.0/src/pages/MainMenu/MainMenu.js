@@ -17,7 +17,7 @@ export default function MainMenu() {
                     <NavLink className="nav-link border-pop" to='/practice' exact>PRACTICE</NavLink>
                 </div>              
                 <div className='menu-link'>
-                    <NavLink className="nav-link border-pop" to='/practice' exact>EXPLORE</NavLink>
+                    <NavLink className="nav-link border-pop" to='/intro' exact>INTRO</NavLink>
                 </div>              
         </div>
     </div>
