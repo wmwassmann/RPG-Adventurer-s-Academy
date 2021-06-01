@@ -1,10 +1,10 @@
 
 import React, { useState } from 'react'
 import Modal from '../Modals/Modal'
-import useStyle from './css/Style.js'
-import { useDispatch, useSelector } from 'react-redux';
+// import useStyle from './css/Style.js'
+// import { useDispatch } from 'react-redux';
 import Dialog from './Dialog/LandingDialog'
-import argusTimbers from './img/dwarf-mage-3.png'
+// import argusTimbers from './img/dwarf-mage-3.png'
 import './css/dialog-style.css'
 
 
@@ -13,8 +13,8 @@ const Textbox = () => {
     // const dialogBlock = useSelector((state) => state.dialogs)
 
     const [isOpen, setIsOpen] = useState(false)
-    const classes = useStyle()
-    const dispatch = useDispatch()
+    // const classes = useStyle()
+    // const dispatch = useDispatch()
 
     // console.log(dialogBlock)
 

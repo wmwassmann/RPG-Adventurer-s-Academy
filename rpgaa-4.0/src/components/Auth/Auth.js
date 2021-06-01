@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core'
+import { Button, Paper, Grid, Typography, Container } from '@material-ui/core'
 import useStyles from './Style';
 import './css/auth-style.css';
 import Input from './Input';

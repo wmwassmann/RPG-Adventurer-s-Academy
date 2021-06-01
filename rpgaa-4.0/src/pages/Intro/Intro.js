@@ -34,7 +34,7 @@ const Intro = () => {
             setBlockCount(parsedBlockCount)
         }
 
-    }, [])
+    })
 
     useEffect(() => {
         localStorage.setItem('narration', narrationCount)

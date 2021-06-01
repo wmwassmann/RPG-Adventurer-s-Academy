@@ -4,7 +4,7 @@ import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
 import { useSelector } from 'react-redux';
 import useStyles from '../css/Style.js'
 import AnswerDropdown from '../AnswerButtons/AnswerDropdown.js';
-import AnswerButtons from '../AnswerButtons/AnswerButtons.js';
+
 import AnswerItem from '../AnswerButtons/AnswerItem.js';
 import AnswerNavbar from '../AnswerButtons/AnswerNav.js';
 
@@ -14,7 +14,7 @@ import AnswerNavbar from '../AnswerButtons/AnswerNav.js';
 const Dialog = () => {
     const dialogBlock = useSelector((state) => state.dialogs)
     const [lineCount, setLineCount] = useState(0);
-    const [argusBlock, setArgusBlock] = useState(localStorage.getItem('argusBlock'))
+    // const [argusBlock, setArgusBlock] = useState(localStorage.getItem('argusBlock'))
     const classes = useStyles()
 
     const user = JSON.parse(localStorage.getItem('profile'))
@@ -33,7 +33,7 @@ const Dialog = () => {
             setLineCount(parsedLineCount)
         }
 
-    }, [])
+    }, [currentBlock])
 
     useEffect(() => {
         localStorage.setItem('lineCount', lineCount)       
