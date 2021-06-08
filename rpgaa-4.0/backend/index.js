@@ -10,7 +10,7 @@ import usersRouter from "./routes/users.js";
 import dialogRouter from "./routes/dialog.js";
 import narrationRouter from "./routes/narration.js";
 
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 
 
@@ -40,9 +40,8 @@ app.use("/narration", narrationRouter);
 // const ATLAS_URI = 'mongodb+srv://wmwassmann:thunderThunderTHUNDERCATSh0000@rpgaa.59ktj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 // const PORT = process.env.PORT || 5000
 
-const ATLAS_URI = process.env.ATLAS_URI || 'mongodb+srv://wmwassmann:thunderThunderTHUNDERCATSh0000@rpgaa.59ktj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-const PORT = process.env.PORT || 8080
-
+const ATLAS_URI = process.env.ATLAS_URI
+const PORT = process.env.PORT
 
 connectDB()
 

@@ -17,6 +17,15 @@
     
 }
 
+.stance-display {
+   position: relative;
+   bottom: 234px;
+   left: 200px;
+   background-color: turquoise;
+   width: 130px;
+   height: 130px;
+}
+
 .stance-btn {  
     display: flex;
     justify-content: space-around;

@@ -1,4 +1,6 @@
 
+/* Main modal */
+
 .modal-container {
     position: fixed;
     top: 60%;
@@ -28,4 +30,33 @@
 
 .display-text {
     padding: 10px;    
+    color: white;
+}
+
+
+/* lower modal */
+
+.lower-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .1);
+    z-index: 1000;
+}
+
+.lower-modal-container {
+    position: fixed;
+    top: 110%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    background-color: transparent;
+    width: 350px;
+    height: 330px;
+    padding: 10px;    
+    z-index: 1000;    
+    /* background: url(../img/tornpaperbackground.png) no-repeat top; */
+    
+    background-size: contain;
 }

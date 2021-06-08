@@ -11,14 +11,14 @@ export default function MainMenu() {
     <div className='main-menu-background'>
         <div className='main-menu-container'>              
                 <div className='menu-link'>
-                    <NavLink className="nav-link border-pop" to='/gameplay' exact>PLAY</NavLink>
+                    <NavLink className="nav-link border-pop" to='/intro' exact>PLAY</NavLink>
                 </div>
                 <div className='menu-link'>
                     <NavLink className="nav-link border-pop" to='/practice' exact>PRACTICE</NavLink>
                 </div>              
-                <div className='menu-link'>
+                {/* <div className='menu-link'>
                     <NavLink className="nav-link border-pop" to='/intro' exact>INTRO</NavLink>
-                </div>              
+                </div>               */}
         </div>
     </div>
     )

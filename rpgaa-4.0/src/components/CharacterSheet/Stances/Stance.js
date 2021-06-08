@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
 import './css/stance-style.css'
+import AnswerDropdown from '../../Gameplay/AnswerButtons/AnswerDropdown';
 
 
 
@@ -29,8 +30,26 @@ export default class Stance extends Component {
         e.preventDefault()
 
         localStorage.setItem('Stance', stance)
+        const currentStance = localStorage.getItem('Stance')
 
         // Displays a sample output in the DOM of the current selected stance. 
+        if (currentStance === 'Atk') {
+            console.log('Atk')
+        } 
+
+        if (currentStance === 'Def') {
+            console.log('Def')
+        }
+
+        if (currentStance === 'Util') {
+            console.log('Util')
+        }
+
+        if (currentStance === 'RP') {
+            console.log('RP')
+            const roleplayAnswers = document.getElementById('roleplay-answers')
+            roleplayAnswers.classList.remove('hidden')
+        }
     
 
         // imports the selected_stance.  Might not need to have a toggle system in place, but I like to do both?
@@ -46,12 +65,25 @@ export default class Stance extends Component {
 
         return (
             <div className='stance-container'>            
+                <div id='attack-answers' className='hidden'>
+                    <AnswerDropdown />
+                </div>
+                <div id='defense-answers' className='hidden'>
+                    <AnswerDropdown />
+                </div>
+                <div id='utility-answers' className='hidden'>
+                    <AnswerDropdown />
+                </div>
+                <div id='roleplay-answers' className='hidden'>
+                    <AnswerDropdown />
+                </div>
+                <div className='stance-display hidden'>
+                </div>       
                 <div className='stance-btn-container'>
                     <button className='stance-btn' id={`${stance}-button`} onClick={this.handle_stance}>
                         {stance}
                     </button>
                 </div>
-                
             </div>
         )
     }

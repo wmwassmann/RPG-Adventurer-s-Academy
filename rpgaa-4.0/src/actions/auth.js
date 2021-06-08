@@ -11,7 +11,8 @@ export const signin = (formData, router) => async (dispatch) => {
 
         router.push('/')
     } catch (error) {
-        console.log(error, 'this other')
+      // If this fails it means that 
+        console.log(error, 'Authentication access failure - Debug by inspecting /Axios/Axios.js, or exported const signin /components/Auth/Auth.js')
     }
 }
 
@@ -37,9 +38,9 @@ export const dialog = () => async (dispatch) => {
   
       dispatch({ type: FETCH_DIALOG, payload: data });
    
-      console.log('Success Actions Auth')
+      console.log('/actions/auth.js const dialog success')
     } catch (error) {
-      console.log(error, "Actions error");
+      console.log(error, "/actions/auth.js const dialog failure");
     }
   };
 
@@ -51,8 +52,8 @@ export const narration = () => async (dispatch) => {
   
       dispatch({ type: FETCH_NARRATION, payload: data });
    
-      console.log('Success Actions Auth')
+      console.log('/actions/auth.js const narration success')
     } catch (error) {
-      console.log(error, "Actions error");
+      console.log(error, "/actions/auth.js const narration failure");
     }
   };
